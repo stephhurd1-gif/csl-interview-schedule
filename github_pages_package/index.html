@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Schedule</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body {
+  box-sizing: border-box;
+}
+
+.underline-input {
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  background: transparent;
+  outline: none;
+  padding: 1px 3px;
+  font-size: 0.9375rem;
+  transition: border-color 0.2s;
+}
+.underline-input:focus {
+  border-bottom-color: #3b82f6;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: #fdf2f8;
+}
+
+.dropdown-item[aria-selected="true"] {
+  background-color: #fce7f3;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  body { 
+    font-size: 11px !important; 
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    background: white !important;
+    color: black !important;
+    font-family: Arial, sans-serif !important;
+  }
+  
+  .container { 
+    max-width: none !important; 
+    margin: 0 !important; 
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+  }
+  
+  .header-section {
+    margin-bottom: 8px !important;
+    page-break-inside: avoid !important;
+  }
+  
+  h1 {
+    color: #dc2626 !important;
+    font-weight: bold !important;
+  }
+  
+  .grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+  
+  .grid > div {
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-outer-spin-button {
+    display: none !important;
+  }
+  
+  .print-input, .underline-input {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-bottom: 0.5px solid #666 !important;
+    border-radius: 0 !important;
+    padding: 2px 4px !important;
+    margin: 0 2px !important;
+    font-size: inherit !important;
+    color: #000 !important;
+    display: inline-block !important;
+    min-width: 100px !important;
+    font-weight: normal !important;
+  }
+  
+  .location-input {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-bottom: none !important;
+    padding: 2px 4px !important;
+    margin: 0 2px !important;
+    font-size: inherit !important;
+    color: #000 !important;
+    font-weight: normal !important;
+  }
+  
+  .location-input::placeholder {
+    display: none !important;
+  }
+  
+  input::placeholder {
+    display: none !important;
+  }
+  
+  textarea::placeholder {
+    display: none !important;
+  }
+  
+  .location-input::placeholder {
+    display: none !important;
+  }
+  
+  table { 
+    width: 100% !important; 
+    border-collapse: collapse !important;
+    page-break-inside: avoid !important;
+    margin: 6px 0 !important;
+  }
+  
+  th, td { 
+    border: 1px solid #000 !important; 
+    padding: 3px 2px !important;
+    font-size: 9px !important;
+    vertical-align: top !important;
+    text-align: left !important;
+  }
+  
+  th { 
+    background: #dc2626 !important; 
+    color: white !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  table .print-input {
+    width: 100% !important;
+    border: none !important;
+    border-bottom: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 11px !important;
+    text-align: center !important;
+  }
+  
+  #commentsBox {
+    border: 1px solid #000 !important;
+    padding: 6px !important;
+    margin: 8px 0 !important;
+    background: white !important;
+    min-height: 50px !important;
+    white-space: pre-wrap !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  #commentsBox input {
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+    background: transparent !important;
+    padding: 0 2px !important;
+    margin: 0 2px !important;
+    font-size: 10px !important;
+  }
+  
+  .page-break {
+    page-break-before: always !important;
+  }
+  
+  button, .hidden, [hidden] {
+    display: none !important;
+  }
+  
+  .security-note {
+    background: #fff3cd !important;
+    border: 1px solid #ffeaa7 !important;
+    padding: 4px !important;
+    margin: 6px 0 !important;
+    border-radius: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .location-area {
+    margin: 8px 0 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, span, div, label {
+    color: #000 !important;
+  }
+  
+  label {
+    font-weight: bold !important;
+  }
+  
+  #locationList, #timePicker {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<div class="container mx-auto max-w-4xl bg-white shadow-lg">
+  <!-- Top Controls (No Print) -->
+  <div class="no-print bg-slate-100 border-b p-4">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <!-- Smartsheet Integration -->
+      <div class="bg-white rounded-lg p-4 shadow-sm no-print">
+        <h3 class="text-lg font-semibold text-slate-800 mb-3">Quick Setup from Smartsheet</h3>
+        <div class="space-y-3">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Paste Smartsheet Line</label>
+            <textarea id="smartsheetInput" class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="2" placeholder="Paste the interview line from Smartsheet here..."></textarea>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button type="button" id="smartsheetParse" class="px-4 py-2 bg-rose-600 text-white rounded-md hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">Parse & Apply</button>
+            <span id="parseStatus" class="text-sm text-slate-600"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode Toggle -->
+      <div class="bg-white rounded-lg p-4 shadow-sm no-print">
+        <div class="flex items-center space-x-3">
+          <label class="flex items-center cursor-pointer">
+            <input type="checkbox" id="toggleSecurity" class="sr-only">
+            <div class="relative">
+              <div class="block bg-slate-300 w-14 h-8 rounded-full"></div>
+              <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition transform"></div>
+            </div>
+            <span class="ml-3 text-sm font-medium text-slate-700" id="toggleLabel">Virtual Interview</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="bg-white border-b-2 border-rose-600 p-6 header-section">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex-1"></div>
+      <div class="flex flex-col items-center">
+        <!-- CSL Logo -->
+        <svg width="180" height="90" viewBox="0 0 180 90" class="flex-shrink-0 -mb-2">
+          <text x="90" y="60" text-anchor="middle" fill="#dc2626" font-family="Arial, sans-serif" font-size="48" font-weight="bold">CSL</text>
+        </svg>
+        <div class="flex items-center justify-between mb-2"><h1 class="text-3xl font-bold text-rose-600 mb-1 -mt-1">Interview Schedule</h1></div>
+      </div>
+      <div class="flex-1 flex justify-end">
+        <div class="space-x-2 no-print">
+          <div class="flex items-center justify-between gap-2">
+  <button type="button" id="previewBtn" class="px-3 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 text-sm">Preview</button>
+  <button type="button" id="clearAllBtn" class="px-3 py-1 bg-red-700 text-white rounded text-sm hover:bg-red-800">Clear All Fields</button>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Note -->
+  <div id="securityNote" class="hidden bg-yellow-50 border border-yellow-200 rounded-lg p-4 security-note">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <div class="flex flex-wrap items-start">
+          <span style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #dc2626; text-decoration: underline;">Security Notice:</span>
+          <span style="font-family: Arial, sans-serif; font-size: 13px; color: #000000; margin-left: 8px;">In accordance with CSL's Enterprise security protocols, all visitors are required to be registered in advance. When Visitors arrive on site, visitors must register at the reception area. Visitors must wear and prominently display their assigned identification badge while onsite. All visitors must be escorted at all times, including when returning to the reception area.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Virtual Banner -->
+  <div id="virtualBanner" class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <svg class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-blue-800">Virtual Interview</h3>
+        <div class="mt-2 text-sm text-blue-700">
+          <p>This interview will be conducted via Microsoft Teams. You will receive a meeting invitation with the join link.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="p-4 space-y-4">
+
+    <!-- Form Fields -->
+    <div class="space-y-1">
+      <!-- Row 1: Applicant Name and Date -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex items-center space-x-3">
+          <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Applicant Name:</label>
+          <input type="text" id="applicantInput" class="underline-input print-input flex-1" placeholder="Enter candidate's full name">
+        </div>
+        <div class="flex items-center space-x-3">
+          <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Date:</label>
+          <input type="date" id="dateInput" class="underline-input print-input flex-1">
+        </div>
+      </div>
+      
+      <!-- Row 2: Position -->
+      <div class="flex items-start space-x-3">
+        <label class="text-sm font-medium text-slate-700 whitespace-nowrap mt-1">Position:</label>
+        <textarea id="positionInput" class="underline-input print-input flex-1 resize-none overflow-hidden" placeholder="Enter position title" rows="1" style="min-height: 1.5rem; line-height: 1.5;"></textarea>
+      </div>
+      
+      <!-- Row 3: Hiring Manager -->
+      <div class="flex items-center space-x-3">
+        <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Hiring Manager:</label>
+        <div class="relative flex-1">
+          <input type="text" id="hiringManagerInput" class="underline-input print-input w-full" placeholder="Enter hiring manager name">
+          <div id="hiringManagerList" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-auto">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Row 4: Scheduler's Name and Phone -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex items-center space-x-3">
+          <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Scheduler's Name:</label>
+          <div class="relative flex-1">
+            <input type="text" id="schedulerNameInput" class="underline-input print-input w-full" placeholder="Enter scheduler name">
+            <div id="schedulerList" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-auto">
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center space-x-3">
+          <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Scheduler's Phone:</label>
+          <input type="tel" id="schedulerPhoneInput" class="underline-input print-input flex-1" placeholder="(xxx) xxx-xxxx">
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Area -->
+    <div id="locationArea" class="space-y-2 location-area">
+      <!-- Location Search -->
+      <div class="relative no-print">
+        <label class="block text-sm font-medium text-slate-700 mb-1 no-print">Search Location</label>
+        <input type="text" id="locationSearch" class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 no-print" placeholder="Type to search locations...">
+        <div id="locationList" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-auto no-print">
+        </div>
+      </div>
+      
+      <div class="flex items-start space-x-4">
+        <h3 class="text-sm font-medium text-slate-700 whitespace-nowrap">Interview Location:</h3>
+        <div class="flex-1">
+          <div class="space-y-0 leading-tight">
+            <input type="text" id="locNameInput" class="location-input w-full border-none bg-transparent outline-none text-sm leading-tight">
+            <input type="text" id="locStreetInput" class="location-input w-full border-none bg-transparent outline-none text-sm leading-tight">
+            <input type="text" id="locCityInput" class="location-input w-full border-none bg-transparent outline-none text-sm leading-tight">
+            <input type="tel" id="locTelInput" class="location-input w-full border-none bg-transparent outline-none text-sm leading-tight">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schedule Tables Container -->
+    <div id="tablesContainer">
+      <!-- Table 1 -->
+      <div class="table-section" data-table="1">
+        <!-- Date Box Above Start Time and End Time Columns -->
+        <div class="flex">
+          <div class="border border-slate-300 px-3 py-2 rounded-lg" style="width: 280px;">
+            <div class="flex items-center space-x-2">
+              <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Date:</label>
+              <input type="date" id="mirroredDateInput" class="underline-input print-input text-xs" style="width: 140px;" readonly>
+            </div>
+          </div>
+        </div>
+        
+        <table class="w-full border-collapse border border-slate-300 rounded-lg overflow-hidden" style="table-layout: auto;">
+          <thead>
+            <tr class="bg-rose-600">
+              <th class="border border-slate-300 px-2 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 110px;">Start Time</th>
+              <th class="border border-slate-300 px-2 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 110px;">End Time</th>
+              <th class="border border-slate-300 px-3 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 300px;">Interviewer / Title</th>
+              <th class="border border-slate-300 px-2 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 120px;">Location</th>
+              <th class="border border-slate-300 px-2 py-2 text-left text-sm font-medium text-white no-print" style="white-space: nowrap; width: 100px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rows">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table 2 (Initially Hidden) -->
+      <div class="table-section hidden mt-6" data-table="2" id="table2">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-lg font-semibold text-slate-800">Additional Interview Schedule</h3>
+          <button type="button" id="removeTable2" class="px-2 py-1 bg-red-600 text-white rounded text-xs hover:bg-red-700 no-print">Remove Table</button>
+        </div>
+        
+        <!-- Date Box for Table 2 -->
+        <div class="flex">
+          <div class="border border-slate-300 px-3 py-2 rounded-lg" style="width: 280px;">
+            <div class="flex items-center space-x-2">
+              <label class="text-sm font-medium text-slate-700 whitespace-nowrap">Date:</label>
+              <input type="date" id="mirroredDateInput2" class="underline-input print-input text-xs" style="width: 140px;">
+            </div>
+          </div>
+        </div>
+        
+        <table class="w-full border-collapse border border-slate-300 rounded-lg overflow-hidden" style="table-layout: auto;">
+          <thead>
+            <tr class="bg-rose-600">
+              <th class="border border-slate-300 px-2 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 110px;">Start Time</th>
+              <th class="border border-slate-300 px-2 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 110px;">End Time</th>
+              <th class="border border-slate-300 px-3 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 300px;">Interviewer / Title</th>
+              <th class="border border-slate-300 px-2 py-2 text-center text-sm font-medium text-white" style="white-space: nowrap; width: 120px;">Location</th>
+              <th class="border border-slate-300 px-2 py-2 text-left text-sm font-medium text-white no-print" style="white-space: nowrap; width: 100px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rows2">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center mt-4">
+      <div class="space-x-2 no-print">
+        <button type="button" id="addRow" class="px-3 py-1 bg-rose-600 text-white rounded text-sm hover:bg-rose-700">Add Row</button>
+        <button type="button" id="addTable" class="px-3 py-1 bg-slate-600 text-white rounded text-sm hover:bg-slate-700">Add Table</button>
+        <button type="button" id="clearRows" class="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700">Clear All</button>
+      </div>
+    </div>
+
+    <!-- Comments -->
+    <div>
+      <h3 class="text-lg font-semibold text-slate-800 mb-1">Comments</h3>
+      <div id="commentsBox" class="w-full min-h-24 p-3 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 whitespace-pre-wrap" contenteditable="true"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-end mt-4 pt-2 border-t border-slate-200">
+      <div class="text-sm text-slate-600" id="pageNumber">Page 1 of 1</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Time Picker Modal -->
+<div id="timePicker" class="hidden fixed bg-white border border-slate-300 rounded-lg shadow-xl p-3 z-50 no-print" style="width: 260px;">
+  <div class="space-y-3">
+    <h4 class="font-medium text-slate-800 text-sm">Select Time</h4>
+    
+    <!-- Time Selection -->
+    <div class="flex space-x-1 items-center">
+      <select id="tpHour" class="px-1 py-1 border border-slate-300 rounded text-xs w-12">
+      </select>
+      <span class="text-xs">:</span>
+      <select id="tpMinute" class="px-1 py-1 border border-slate-300 rounded text-xs w-12">
+      </select>
+      <select id="tpAmPm" class="px-1 py-1 border border-slate-300 rounded text-xs w-12">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select>
+    </div>
+
+    <!-- Time Zone -->
+    <div class="space-y-1">
+      <label class="block text-xs font-medium text-slate-700">Time Zone</label>
+      <div class="grid grid-cols-4 gap-1">
+        <button type="button" class="tzBtn px-1 py-1 text-xs rounded border" data-tz="EST">EST</button>
+        <button type="button" class="tzBtn px-1 py-1 text-xs rounded border" data-tz="CST">CST</button>
+        <button type="button" class="tzBtn px-1 py-1 text-xs rounded border" data-tz="MST">MST</button>
+        <button type="button" class="tzBtn px-1 py-1 text-xs rounded border" data-tz="PST">PST</button>
+      </div>
+    </div>
+
+    <!-- Duration -->
+    <div class="space-y-1">
+      <label class="block text-xs font-medium text-slate-700">Duration (min)</label>
+      <div class="grid grid-cols-4 gap-1">
+        <button type="button" class="durBtn px-1 py-1 text-xs rounded border" data-dur="15">15</button>
+        <button type="button" class="durBtn px-1 py-1 text-xs rounded border" data-dur="30">30</button>
+        <button type="button" class="durBtn px-1 py-1 text-xs rounded border" data-dur="45">45</button>
+        <button type="button" class="durBtn px-1 py-1 text-xs rounded border" data-dur="60">60</button>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex space-x-2">
+      <button type="button" id="tpAdd" class="px-2 py-1 bg-rose-600 text-white rounded text-xs hover:bg-rose-700 flex-1">Apply</button>
+      <button type="button" id="tpCancel" class="px-2 py-1 bg-slate-300 text-slate-700 rounded text-xs hover:bg-slate-400 flex-1">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Time utilities
+function parseTimeString(timeStr) {
+  if (!timeStr) return null;
+  const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*([A-Z]{3})?/i);
+  if (!match) return null;
+  return {
+    h: parseInt(match[1], 10),
+    m: parseInt(match[2], 10),
+    ampm: match[3].toUpperCase(),
+    tz: match[4] || 'CST'
+  };
+}
+
+function buildTimeString(h, m, ampm, tz) {
+  const hStr = String(h).padStart(2, '0');
+  const mStr = String(m).padStart(2, '0');
+  return `${hStr}:${mStr} ${ampm} ${tz}`;
+}
+
+function addMinutes(h, m, ampm, mins) {
+  let totalMins = (ampm === 'PM' && h !== 12 ? h + 12 : (ampm === 'AM' && h === 12 ? 0 : h)) * 60 + m + mins;
+  const newH24 = Math.floor(totalMins / 60) % 24;
+  const newM = totalMins % 60;
+  const newH12 = newH24 === 0 ? 12 : (newH24 > 12 ? newH24 - 12 : newH24);
+  const newAmPm = newH24 < 12 ? 'AM' : 'PM';
+  return { h: newH12, m: newM, ampm: newAmPm };
+}
+
+// Load saved data
+function loadSavedData() {
+  const fields = ['applicantInput', 'dateInput', 'positionInput', 'hiringManagerInput', 'schedulerNameInput', 'schedulerPhoneInput'];
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    const saved = localStorage.getItem(id);
+    if (el && saved) el.value = saved;
+  });
+
+  const mirroredDateInput2 = document.getElementById('mirroredDateInput2');
+  const savedDate2 = localStorage.getItem('mirroredDateInput2');
+  if (mirroredDateInput2 && savedDate2) {
+    mirroredDateInput2.value = savedDate2;
+  }
+
+  try {
+    const locData = JSON.parse(localStorage.getItem('loc') || '{}');
+    if (locData.search) document.getElementById('locationSearch').value = locData.search;
+    if (locData.name) document.getElementById('locNameInput').value = locData.name;
+    if (locData.street) document.getElementById('locStreetInput').value = locData.street;
+    if (locData.city) document.getElementById('locCityInput').value = locData.city;
+    if (locData.tel) document.getElementById('locTelInput').value = locData.tel;
+  } catch(e) {}
+}
+
+// Save form data and mirror date
+['applicantInput', 'dateInput', 'positionInput', 'hiringManagerInput', 'schedulerNameInput', 'schedulerPhoneInput'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('input', () => {
+      localStorage.setItem(id, el.value);
+      if (id === 'dateInput') updateMirroredDate();
+      if (id === 'positionInput') autoResizeTextarea(el);
+    });
+  }
+});
+
+// Auto-resize textarea function
+function autoResizeTextarea(textarea) {
+  textarea.style.height = 'auto';
+  textarea.style.height = Math.max(24, textarea.scrollHeight) + 'px';
+}
+
+// Mirror date functionality
+function updateMirroredDate() {
+  const dateInput = document.getElementById('dateInput');
+  const mirroredDateInput = document.getElementById('mirroredDateInput');
+  const mirroredDateInput2 = document.getElementById('mirroredDateInput2');
+  if (dateInput && mirroredDateInput) {
+    mirroredDateInput.value = dateInput.value;
+  }
+  if (dateInput && mirroredDateInput2 && !mirroredDateInput2.value) {
+    mirroredDateInput2.value = dateInput.value;
+  }
+}
+
+// Save second table date separately
+const mirroredDateInput2 = document.getElementById('mirroredDateInput2');
+if (mirroredDateInput2) {
+  mirroredDateInput2.addEventListener('input', () => {
+    localStorage.setItem('mirroredDateInput2', mirroredDateInput2.value);
+  });
+}
+
+// Print and Download functionality
+let interviewType = 'MS Teams (Video)';
+
+document.getElementById('previewBtn').addEventListener('click', () => {
+  const applicantName = document.getElementById('applicantInput').value.trim() || 'Candidate';
+  const modeText = toggleSecurity.checked ? 'Face-to-Face' : interviewType;
+  const filename = 'Interview Schedule - ' + applicantName + ' - ' + modeText;
+
+  document.title = filename;
+
+  // Add a temporary style to override print styles for preview
+  const previewStyle = document.createElement('style');
+  previewStyle.id = 'preview-override';
+  previewStyle.textContent = `
+    @media print {
+      body { 
+        background: #f8fafc !important;
+        color: #0f172a !important;
+      }
+      .container { 
+        background: white !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 0.5rem !important;
+      }
+      h1 {
+        color: #dc2626 !important;
+        font-size: 1.875rem !important;
+        font-weight: bold !important;
+      }
+      th { 
+        background: #dc2626 !important; 
+        color: white !important;
+      }
+      .security-note {
+        background: #fefce8 !important;
+        border: 1px solid #fde047 !important;
+      }
+      #virtualBanner {
+        background: #eff6ff !important;
+        border: 1px solid #93c5fd !important;
+      }
+      .print-input, .underline-input {
+        border-bottom: 1px solid #e2e8f0 !important;
+        color: #0f172a !important;
+      }
+      .location-input {
+        color: #0f172a !important;
+      }
+      #commentsBox {
+        border: 1px solid #e2e8f0 !important;
+        background: white !important;
+        color: #0f172a !important;
+      }
+      #commentsBox input {
+        border-bottom: 1px solid #9ca3af !important;
+        color: #0f172a !important;
+      }
+    }
+  `;
+  document.head.appendChild(previewStyle);
+
+  const noPrintElements = document.querySelectorAll('.no-print');
+  const originalDisplays = [];
+  noPrintElements.forEach((el, index) => {
+    originalDisplays[index] = el.style.display;
+    el.style.display = 'none';
+  });
+
+  window.print();
+
+  setTimeout(() => {
+    noPrintElements.forEach((el, index) => {
+      el.style.display = originalDisplays[index];
+    });
+    document.title = 'Interview Schedule';
+    // Remove the preview style override
+    const previewStyleEl = document.getElementById('preview-override');
+    if (previewStyleEl) {
+      previewStyleEl.remove();
+    }
+  }, 100);
+});
+
+// Toggle functionality
+const toggleSecurity = document.getElementById('toggleSecurity');
+const toggleLabel = document.getElementById('toggleLabel');
+const securityNote = document.getElementById('securityNote');
+const locationArea = document.getElementById('locationArea');
+const virtualBanner = document.getElementById('virtualBanner');
+
+function setToggleLabel() {
+  const on = toggleSecurity.checked;
+  toggleLabel.textContent = on ? 'Onsite Interview' : 'Virtual Interview';
+  const dot = document.querySelector('.dot');
+  if (dot) {
+    dot.style.transform = on ? 'translateX(24px)' : 'translateX(0)';
+    dot.parentElement.style.backgroundColor = on ? '#dc2626' : '#cbd5e1';
+  }
+}
+
+function applyModeUI() {
+  const on = toggleSecurity.checked;
+  securityNote.classList.toggle('hidden', !on);
+  virtualBanner.classList.toggle('hidden', on);
+  setToggleLabel();
+}
+
+function updateLocationFields() {
+  if (toggleSecurity.checked) {
+    // Onsite mode
+    locNameInput.value = '';
+    locStreetInput.value = '';
+    locCityInput.value = '';
+    locTelInput.value = '';
+  } else {
+    // Virtual mode
+    if (interviewType === 'Telephone') {
+      locNameInput.value = 'Telephone';
+    } else {
+      // Both MS Teams Video and Audio show as "MS TEAMS"
+      locNameInput.value = 'MS TEAMS';
+    }
+    locStreetInput.value = '';
+    locCityInput.value = '';
+    locTelInput.value = '';
+  }
+  saveLocationFields();
+}
+
+toggleSecurity.addEventListener('change', () => {
+  applyModeUI();
+  updateLocationFields();
+  enforceLocationCells();
+  updateComments(true);
+  localStorage.setItem('modeInPerson', toggleSecurity.checked ? '1' : '0');
+});
+
+if (localStorage.getItem('modeInPerson') === '1') toggleSecurity.checked = true;
+applyModeUI();
+
+// Sample data
+const sampleSchedulers = [
+  { name: 'Alex Borgman', phone: '(262) 333-8193' },
+  { name: 'Avi Bhatoolall', phone: '(262) 439-1655' },
+  { name: 'Barbara Gomez', phone: '(262) 549-5857' },
+  { name: 'Cassidy Iwig', phone: '(262) 254-9140' },
+  { name: 'Courtney Cerutti', phone: '(262) 746-4431' },
+  { name: 'Daphnee Thermonvil', phone: '(262) 746-4556' },
+  { name: 'Estefania Germinaro', phone: '(262) 746-4516' },
+  { name: 'Fadia Aftab', phone: '(262) 258-9125' },
+  { name: 'Kimberly Staples', phone: '(262) 289-2054' },
+  { name: 'Latywa Edwards', phone: '(262) 274-7535' },
+  { name: 'Leticia Colombo', phone: '(262) 746-4276' },
+  { name: 'Natalie Nobre', phone: '(262) 746-4356' },
+  { name: 'PaDer Kue', phone: '(262) 746-4386' },
+  { name: 'Paula Okrutna', phone: '(479) 315-5972' },
+  { name: 'Stacy Klemp', phone: '(262) 218-9081' },
+  { name: 'Stephanie Hurd', phone: '(262) 754-5026' },
+  { name: 'Tia Schoen', phone: '(262) 261-4899' }
+];
+
+// Load saved hiring managers from localStorage
+function getSavedHiringManagers() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('savedHiringManagers') || '[]');
+    return saved.length > 0 ? saved : [
+      'Jennifer Smith', 'Mark Johnson', 'Rachel Davis', 'Brian Wilson', 'Michelle Brown',
+      'Steven Garcia', 'Laura Martinez', 'Daniel Rodriguez', 'Karen Anderson', 'James Taylor',
+      'Nicole Thomas', 'Robert Jackson', 'Amy White', 'Christopher Harris', 'Lisa Martin'
+    ];
+  } catch(e) {
+    return [
+      'Jennifer Smith', 'Mark Johnson', 'Rachel Davis', 'Brian Wilson', 'Michelle Brown',
+      'Steven Garcia', 'Laura Martinez', 'Daniel Rodriguez', 'Karen Anderson', 'James Taylor',
+      'Nicole Thomas', 'Robert Jackson', 'Amy White', 'Christopher Harris', 'Lisa Martin'
+    ];
+  }
+}
+
+// Save hiring manager to localStorage
+function saveHiringManager(name) {
+  if (!name.trim()) return;
+  try {
+    const saved = getSavedHiringManagers();
+    if (!saved.includes(name.trim())) {
+      saved.unshift(name.trim()); // Add to beginning
+      if (saved.length > 50) saved.pop(); // Keep only 50 most recent
+      localStorage.setItem('savedHiringManagers', JSON.stringify(saved));
+    }
+  } catch(e) {}
+}
+
+// Load saved interviewers from localStorage
+function getSavedInterviewers() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('savedInterviewers') || '[]');
+    return saved;
+  } catch(e) {
+    return [];
+  }
+}
+
+// Save interviewer to localStorage
+function saveInterviewer(name) {
+  if (!name.trim()) return;
+  try {
+    const saved = getSavedInterviewers();
+    if (!saved.includes(name.trim())) {
+      saved.unshift(name.trim()); // Add to beginning
+      if (saved.length > 50) saved.pop(); // Keep only 50 most recent
+      localStorage.setItem('savedInterviewers', JSON.stringify(saved));
+    }
+  } catch(e) {}
+}
+
+const sampleLocations = [
+  { name: 'Albuquerque 034', street: '204 San Mateo Blvd. SE', cityZip: 'Albuquerque, NM 87108', tel: '(505) 243-4449' },
+{ name: 'Albuquerque 137', street: '6211 4th Street NW, Suite 15', cityZip: 'Albuquerque, NM 87107', tel: '(505) 359-2262' },
+{ name: 'Las Cruces 506', street: '320 Wyatt DR. Suite B', cityZip: 'Las Cruces, NM 88001', tel: '(575) 339-6003' },
+{ name: 'Henderson 134', street: '862 S Boulder Hwy', cityZip: 'Henderson, NV 89015', tel: '(702) 942-1763' },
+{ name: 'Las Vegas 172', street: '3975 S Buffalo Dr. Suite C-101', cityZip: 'Las Vegas, NV 89147', tel: '(702) 462-8777' },
+{ name: 'Las Vegas 216', street: '3220 S Nellis Blvd', cityZip: 'Las Vegas, NV 89121', tel: '(702) 273-3628' },
+{ name: 'Las Vegas 501', street: '4150 Las Vegas Blvd North', cityZip: 'Las Vegas, NV 89115', tel: '(702) 623-4284' },
+{ name: 'Montgomery 105', street: '3536 Eastdale Circle', cityZip: 'Montgomery, AL 36117', tel: '(334) 539-3256' },
+{ name: 'Montgomery 125', street: '4049 Eastern Blvd.', cityZip: 'Montgomery, AL 36116', tel: '(334) 819-5450' },
+{ name: 'Auburn 183', street: '1655 S. College St. Suite C', cityZip: 'Auburn, AL 36832', tel: '(334) 539-3333' },
+{ name: 'Birmingham 259', street: '7509b Crestwood Blvd', cityZip: 'Birmingham, AL 35210', tel: '(205) 598-8209' },
+{ name: 'Rainbow City 275', street: '110 Sutton Bridge Road, Suite 1A', cityZip: 'Rainbow City, AL 35906', tel: '(256) 646-2239' },
+{ name: 'Mobile 284', street: '1971 Government Street', cityZip: 'Mobile, AL 36606', tel: '(251) 355-1343' },
+{ name: 'Dothan 504', street: '3341 South Oates Street', cityZip: 'Dothan, AL 36301', tel: '(334) 500-3646' },
+{ name: 'Huntsville 526', street: '3115 Bob Wallace Ave SW', cityZip: 'Huntsville, AL 35805', tel: '(256) 696-6481' },
+{ name: 'Little Rock 234', street: '8521 Geyer Springs Rd Suite D', cityZip: 'Little Rock, AR 72209', tel: '(501) 406-3147' },
+{ name: 'Springdale 268', street: '702 S. Thompson St', cityZip: 'Springdale, AR 72764', tel: '(479) 318-1362' },
+{ name: 'Ft. Smith 278', street: '1200 S. Waldron Rd Ste 155A', cityZip: 'Fort Smith, AR 72903', tel: '(479) 358-1360' },
+{ name: 'Tempe 048', street: '1000 E. Broadway', cityZip: 'Tempe, AZ 85282', tel: '(480) 894-1330' },
+{ name: 'Tucson 071', street: '4775 South Butterfield Drive, Suite 175-195', cityZip: 'Tucson, AZ 85714', tel: '(520) 790-0025' },
+{ name: 'Nogales 108', street: '350 N. Grand Court Plaza', cityZip: 'Nogales, AZ 85621', tel: '(520) 394-7238' },
+{ name: 'Tucson 111', street: '3757 W. Ina Road, Suite 100/120', cityZip: 'Tucson, AZ 85741', tel: '(520) 394-7246' },
+{ name: 'Gilbert 131', street: '711 N. Gilbert Road', cityZip: 'Gilbert, AZ 85234', tel: '(602) 218-5097' },
+{ name: 'Peoria 133', street: '9770 West Peoria Ave', cityZip: 'Peoria, AZ 85345', tel: '(623) 383-2111' },
+{ name: 'San Luis 158', street: '722 N San Luis Plaza Dr', cityZip: 'San Luis, AZ 85349', tel: '(928) 504-1114' },
+{ name: 'Douglas 190', street: '101 E. 11th St', cityZip: 'Douglas, AZ 85607', tel: '(520) 645-1045' },
+{ name: 'Tempe 427', street: '1334 E. Broadway, #102', cityZip: 'Tempe, AZ 85282', tel: '(480) 968-6139' },
+{ name: 'Yuma 515', street: '501 W. Catalina Dr. Unit A', cityZip: 'Yuma, AZ 85364', tel: '(928) 459-4736' },
+{ name: 'Tucson 624', street: '135 South 4 Avenue', cityZip: 'Tucson, AZ 85701', tel: '(520) 623-6493' },
+{ name: 'National City 297', street: '8 N Euclid Ave Suite 8-10', cityZip: 'National City, CA 91950', tel: '(619) 505-2414' },
+{ name: 'Riverside 299', street: '4135 Chicago Ave Suite 130', cityZip: 'Riverside, CA 92507', tel: '(951) 877-4465' },
+{ name: 'Rialto 507', street: '2008 N Riverside Ave', cityZip: 'Rialto, CA 92377', tel: '(909) 546-8142' },
+{ name: 'Stockton 533', street: '29 E March Ln', cityZip: 'Stockton, CA 95207', tel: '(209) 926-2544' },
+{ name: 'Sacramento 552', street: '1895 Howe Avenue', cityZip: 'Sacramento, CA 95825', tel: '(916) 313-3656' },
+{ name: 'Citrus Heights 553', street: '7830 Macy Plaza Drive', cityZip: 'Citrus Heights, CA 95610', tel: '(279) 277-2041' },
+{ name: 'Fairfield 554', street: '649 Beck Ave', cityZip: 'Fairfield, CA 94533', tel: '(707) 398-6248' },
+{ name: 'Victorville 560', street: '12229 Hesperia Road', cityZip: 'Victorville, CA 92395', tel: '(442) 327-1737' },
+{ name: 'Arvada 129', street: '11651 W. 64th Ave., Suite B1', cityZip: 'Arvada, CO 80004', tel: '(303) 425-9959' },
+{ name: 'Northglenn 141', street: '11874 Washington St', cityZip: 'Northglenn, CO 80233', tel: '(303) 515-7621' },
+{ name: 'Grand Junction 159', street: '2650 North Ave', cityZip: 'Grand Junction, CO 81501', tel: '(970) 233-7947' },
+{ name: 'Colorado Springs 277', street: '5506 N Academy Blvd', cityZip: 'Colorado Springs, CO 80918', tel: '(719) 284-3258' },
+{ name: 'Greeley 615', street: '3505 11th Avenue, Unit #1', cityZip: 'Evans, CO 80620', tel: '(970) 330-3558' },
+{ name: 'Ft. Collins 705', street: '1228 West Elizabeth Street, Suite D-3', cityZip: 'Ft Collins, CO 80521', tel: '(970) 484-2248' },
+{ name: 'Newark 213', street: '79 Marrows Rd.', cityZip: 'Newark, DE 19713', tel: '(302) 565-0003' },
+{ name: 'Dover 534', street: '277 N Dupont Highway Suite A', cityZip: 'Dover, DE 19901', tel: '(302) 546-6080' },
+{ name: 'Port St Lucie 072', street: '10366 US Highway 1', cityZip: 'Port St. Lucie, FL 34952', tel: '(772) 337-3292' },
+{ name: 'Wilton Manors 073', street: '2825 N Andrews Ave', cityZip: 'Wilton Manors, FL 33311', tel: '(954) 561-6337' },
+{ name: 'Tampa 109', street: '10061 E. Adamo Drive', cityZip: 'Tampa, FL 33619', tel: '(813) 749-4072' },
+{ name: 'Riviera Beach 115', street: '80 E. 30th St', cityZip: 'Riviera Beach, FL 33404', tel: '(561) 807-6016' },
+{ name: 'Pinellas Park 139', street: '7490 49th St N.', cityZip: 'Pinellas Park, FL 33781', tel: '(727) 245-1802' },
+{ name: 'Margate 142', street: '1406 N State Rd 7', cityZip: 'Margate, FL 33063', tel: '(954) 874-0634' },
+{ name: 'Orlando 144', street: '2075 Americana Blvd, Suite 400', cityZip: 'Orlando, FL 32839', tel: '(407) 209-3332' },
+{ name: 'Lakeland 154', street: '2041 George Jenkins Blvd. Suite 7', cityZip: 'Lakeland, FL 33815', tel: '(863) 937-0263' },
+{ name: 'Orange City 155', street: '2404 S Volusia Ave', cityZip: 'Orange City, FL 32763', tel: '(386) 917-1808' },
+{ name: 'Longwood 195', street: '160 N Highway 17 92', cityZip: 'Longwood, FL 32750', tel: '(407) 274-9671' },
+{ name: 'Miami 206', street: '850 Ives Dairy Rd, Suite T5', cityZip: 'Miami, FL 33179', tel: '(786) 204-1207' },
+{ name: 'Homestead 207', street: '512 W Mowry Dr', cityZip: 'Homestead, FL 33030', tel: '(786) 410-9062' },
+{ name: 'Tallahassee 211', street: '2525 S Monroe St, Suite 18B', cityZip: 'Tallahassee, FL 32301', tel: '(850) 583-7797' },
+{ name: 'Miramar 214', street: '6239 SW County Line Road', cityZip: 'Miramar, FL 33023', tel: '(305) 894-0795' },
+{ name: 'Jacksonville 251', street: '5000-12 Norwood Ave', cityZip: 'Jacksonville, FL 32208', tel: '(352) 619-0303' },
+{ name: 'Temple Terrace 252', street: '8717 Temple Terrace Hwy', cityZip: 'Temple Terrace, FL 33637', tel: '(813) 280-7584' },
+{ name: 'Palm Bay 254', street: '5270 Babcock St NE #14', cityZip: 'Palm Bay, FL 32905', tel: '(321) 237-4303' },
+{ name: 'Ocala 290', street: '2800 SW 24th Ave', cityZip: 'Ocala, FL 34471', tel: '(352) 414-3555' },
+{ name: 'Orlando 511', street: '609 N Powers Dr Ste 340', cityZip: 'Orlando, FL 32818', tel: '(689) 348-2974' },
+{ name: 'Greenacres 540', street: '3961 Jog Road Unit B', cityZip: 'Greenacres, FL 33467', tel: '(561) 363-3550' },
+{ name: 'Largo 543', street: '3690 E. Bay Dr. Suite N', cityZip: 'Largo, FL 33771', tel: '(727) 472-1134' },
+{ name: 'North Miami 545', street: '14901 NE 6th Avenue', cityZip: 'North Miami, FL 33161', tel: '(786) 761-8758' },
+{ name: 'Tampa 556', street: '1502 E Fowler Avenue', cityZip: 'Tampa, FL 33612', tel: '(656) 952-4736' },
+{ name: 'Pensacola 623', street: '5007 North Davis Highway, Unit #4', cityZip: 'Pensacola, FL 32503', tel: '(850) 494-1500' },
+{ name: 'Decatur 104', street: '1283 Columbia Drive', cityZip: 'Decatur, GA 30032', tel: '(404) 424-8503' },
+{ name: 'Stone Mountain 119', street: '937 N. Hairston Rd, Suite 1', cityZip: 'Stone Mountain, GA 30083', tel: '(770) 783-2475' },
+{ name: 'Jonesboro 120', street: '6525 Tara Blvd, Suite B', cityZip: 'Jonesboro, GA 30236', tel: '(678) 487-1035' },
+{ name: 'Smyrna 123', street: '3201 South Cobb Drive, Suite A', cityZip: 'Smyrna, GA 30080', tel: '(770) 504-5101' },
+{ name: 'Gainesville 182', street: '2297 Browns Bridge Rd', cityZip: 'Gainesville, GA 30501', tel: '(678) 207-4844' },
+{ name: 'Lawrenceville 186', street: '2150 Riverside Pkwy', cityZip: 'Lawrenceville, GA 30043', tel: '(678) 229-1665' },
+{ name: 'East Point 193', street: '1043 Cleveland Ave', cityZip: 'East Point, GA 30344', tel: '(404) 902-5749' },
+{ name: 'Macon 233', street: '3353 Mercer University Dr.', cityZip: 'Macon, GA 31204', tel: '(478) 292-5996' },
+{ name: 'Augusta 253', street: '3459 Peach Orchard Rd', cityZip: 'Augusta, GA 30906', tel: '(706) 955-1526' },
+{ name: 'Dalton 296', street: '902 Abutment Rd', cityZip: 'Dalton, GA 30721', tel: '(706) 671-6888' },
+{ name: 'Rome 298', street: '15 N Division St. NW', cityZip: 'Rome, GA 30165', tel: '(706) 388-2091' },
+{ name: 'Warner Robins 509', street: '1331 Green St', cityZip: 'Warner Robins, GA 31093', tel: '(478) 236-6271' },
+{ name: 'Davenport 424', street: '531 N. Main St.', cityZip: 'Davenport, IA 52803', tel: '(563) 823-9063' },
+{ name: 'Boise 227', street: '3419 N Cole Rd', cityZip: 'Boise, ID 83704', tel: '(208) 917-8619' },
+{ name: 'Nampa 505', street: '3309 Caldwell Blvd', cityZip: 'Nampa, ID 83651', tel: '(208) 205-8463' },
+{ name: 'Hazel Crest 116', street: '18232 S. Kedzie Avenue', cityZip: 'Hazel Crest, IL 60429', tel: '(708) 793-5167' },
+{ name: 'Montgomery 198', street: '1500 Douglas Rd', cityZip: 'Montgomery, IL 60538', tel: '(331) 212-8019' },
+{ name: 'Rockford 200', street: '3800 E. State St', cityZip: 'Rockford, IL 61108', tel: '(779) 207-4419' },
+{ name: 'Joliet 219', street: '1530 West Jefferson St.', cityZip: 'Joliet, IL 60435', tel: '(779) 205-0551' },
+{ name: 'O\'Fallon 224', street: '2025 W. Hwy 50', cityZip: 'O\'Fallon, IL 62208', tel: '(618) 726-0339' },
+{ name: 'Chicago 247', street: '5775 S Archer Ave', cityZip: 'Chicago, IL 60638', tel: '(773) 362-5840' },
+{ name: 'Champaign 270', street: '312 W Kirby Ave', cityZip: 'Champaign, IL 61820', tel: '(217) 207-2170' },
+{ name: 'Springfield 285', street: '1150 North 5th St., Suite E', cityZip: 'Springfield, IL 62702', tel: '(217) 441-9633' },
+{ name: 'Peoria 289', street: '4125 N. Sheridan Rd.', cityZip: 'Peoria, IL 61614', tel: '(309) 271-6421' },
+{ name: 'Normal 292', street: '1503 E College Ave, Suite P', cityZip: 'Normal, IL 61761', tel: '(309) 433-0902' },
+{ name: 'Decatur 446', street: '1021 N. Water St.', cityZip: 'Decatur, IL 62523', tel: '(217) 428-9245' },
+{ name: 'Melrose Park 453', street: '1977 Mannheim Road', cityZip: 'Melrose, IL 60160', tel: '(708) 343-8845' },
+{ name: 'Chicago 535', street: '1418 W 47th Street', cityZip: 'Chicago, IL 60609', tel: '(312) 238-8944' },
+{ name: 'Waukegan 539', street: '730 N. Green Bay Road', cityZip: 'Waukegan, IL 60085', tel: '(224) 480-2620' },
+{ name: 'Chicago 546', street: '4610 W Diversey Avenue', cityZip: 'Chicago, IL 60639', tel: '(872) 298-6820' },
+{ name: 'Kankakee 551', street: '725 N.  Bradley Boulevard, Bldg 201', cityZip: 'Bradley, IL 60915', tel: '(779) 801-3421' },
+{ name: 'Ft. Wayne 089', street: '108 East Pettit Avenue', cityZip: 'Ft. Wayne, IN 46806', tel: '(260) 454-5083' },
+{ name: 'Indianapolis 146', street: '2750 E. 46th St', cityZip: 'Indianapolis, IN 46205', tel: '(317) 622-5058' },
+{ name: 'Indianapolis 181', street: '5905 Madison Ave, Suite E', cityZip: 'Indianapolis, IN 46227', tel: '(317) 808-5998' },
+{ name: 'Muncie 191', street: '1321 S. Madison Street', cityZip: 'Muncie, IN 47302', tel: '(765) 273-4130' },
+{ name: 'Hobart 218', street: '7750 E Ridge Rd', cityZip: 'Hobart, IN 46342', tel: '(219) 484-2099' },
+{ name: 'Mishawaka 249', street: '4150 Grape Rd', cityZip: 'Mishawaka, IN 46545', tel: '(574) 314-9277' },
+{ name: 'Terre Haute 265', street: '3000 South 7th Street', cityZip: 'Terre Haute, IN 47802', tel: '(812) 233-3944' },
+{ name: 'W. Lafayette 411', street: '400 Brown Street', cityZip: 'West Lafayette, IN 47906', tel: '(765) 743-9665' },
+{ name: 'Indianapolis 412', street: '5550 E. Washington Street', cityZip: 'Indianapolis, IN 46219', tel: '(317) 352-9157' },
+{ name: 'Michigan City 519', street: '312 West Highway 20', cityZip: 'Michigan City, IN 46360', tel: '(219) 268-6284' },
+{ name: 'Indianapolis 559', street: '2029 W. Washington St.', cityZip: 'Indianapolis, IN 46222', tel: '(463) 276-6021' },
+{ name: 'Evansville 614', street: '2000 Weinbach Center Drive', cityZip: 'Evansville, IN 47711', tel: '(812) 473-7014' },
+{ name: 'Lawrence 012', street: '816 W. 24th Street', cityZip: 'Lawrence, KS 66046', tel: '(785) 749-5750' },
+{ name: 'Manhattan 019', street: '1130 Garden Way', cityZip: 'Manhattan, KS 66502', tel: '(785) 776-9177' },
+{ name: 'Wichita 263', street: '4836 S. Broadway', cityZip: 'Wichita, KS 67216', tel: '(316) 925-7529' },
+{ name: 'Wichita 415', street: '1515 East Central Avenue', cityZip: 'Wichita, KS 67214', tel: '(316) 264-6973' },
+{ name: 'Topeka 518', street: '2935 SW Topeka Blvd', cityZip: 'Topeka, KS 66611', tel: '(785) 940-4150' },
+{ name: 'Lexington 053', street: '817 Winchester Road, #140', cityZip: 'Lexington, KY 40505', tel: '(859) 233-9296' },
+{ name: 'Louisville 054', street: '1407 W. Jefferson Street', cityZip: 'Louisville, KY 40203', tel: '(502) 584-1121' },
+{ name: 'Lexington 404', street: '1840 Oxford Circle', cityZip: 'Lexington, KY 40504', tel: '(859) 254-8047' },
+{ name: 'Kenner 149', street: '2532 Williams Blvd.', cityZip: 'Kenner, LA 70062', tel: '(504) 704-1371' },
+{ name: 'Westwego 153', street: '1050 Westbank Expressway', cityZip: 'Westwego, LA 70094', tel: '(504) 704-1374' },
+{ name: 'Shreveport 245', street: '2712A W 70th St', cityZip: 'Shreveport, LA 71108', tel: '(318) 800-9940' },
+{ name: 'Glen Burnie 136', street: '7385 L Baltimore Annapolis Blvd', cityZip: 'Glen Burnie, MD 21061', tel: '(410) 999-6421' },
+{ name: 'Baltimore 166', street: '2317 East Northern Pkwy', cityZip: 'Baltimore, MD 21214', tel: '(410) 235-1568' },
+{ name: 'Hagerstown 174', street: '761 E Wilson Blvd. Suite J', cityZip: 'Hagerstown, MD 21740', tel: '(240) 500-1440' },
+{ name: 'District Heights 210', street: '3302 Walters Ln', cityZip: 'District Heights, MD 20747', tel: '(240) 304-3899' },
+{ name: 'Brewer 503', street: '422 Wilson St.', cityZip: 'Brewer, ME 04412', tel: '(207) 300-6820' },
+{ name: 'Lansing 042', street: '5015 South Cedar Street, Suite #150', cityZip: 'Lansing, MI 48910', tel: '(517) 394-0016' },
+{ name: 'Southfield 070', street: '21921 Greenfield Rd.', cityZip: 'Southfield, MI 48075', tel: '(248) 552-1191' },
+{ name: 'Roseville 077', street: '26280 Gratiot Ave.', cityZip: 'Roseville, MI 48066', tel: '(586) 774-8026' },
+{ name: 'Lincoln Park 101', street: '2625 Dix Highway', cityZip: 'Lincoln Park, MI 48146', tel: '(313) 305-1218' },
+{ name: 'Lansing 118', street: '3800 W. Saginaw', cityZip: 'Lansing, MI 48917', tel: '(517) 679-3326' },
+{ name: 'Pontiac 121', street: '482 N. Telegraph Road', cityZip: 'Pontiac, MI 48341', tel: '(248) 724-3319' },
+{ name: 'Highland Park 138', street: '14088 Woodward Ave', cityZip: 'Highland Park, MI 48203', tel: '(313) 346-1204' },
+{ name: 'Flint 161', street: '5038 Miller Rd.', cityZip: 'Flint, MI 48507', tel: '(810) 244-0281' },
+{ name: 'Sterling Heights 164', street: '43552 Van Dyke Ave', cityZip: 'Sterling Heights, MI 48314', tel: '(586) 933-1513' },
+{ name: 'Saginaw 169', street: '4596 State St', cityZip: 'Saginaw, MI 48603', tel: '(989) 921-3301' },
+{ name: 'Ft. Gratiot 170', street: '4025 24th Ave', cityZip: 'Fort Gratiot, MI 48059', tel: '(810) 216-7136' },
+{ name: 'Wyoming 173', street: '1290 28th St SW', cityZip: 'Wyoming, MI 49509', tel: '(616) 885-9998' },
+{ name: 'Portage 187', street: '321 Mall Drive', cityZip: 'Portage, MI 49024', tel: '(269) 775-0302' },
+{ name: 'Jackson 205', street: '115 W Prospect St', cityZip: 'Jackson, MI 49203', tel: '(517) 301-9835' },
+{ name: 'Westland 226', street: '34500 Ford Rd', cityZip: 'Westland, MI 48185', tel: '(734) 821-7495' },
+{ name: 'Grand Blanc 244', street: '1040 East Hill Rd', cityZip: 'Grand Blanc, MI 48439', tel: '(810) 771-9001' },
+{ name: 'Mt.Clemens 261', street: '44N Groesbeck Hwy', cityZip: 'Mount Clemens, MI 48043', tel: '(586) 333-4113' },
+{ name: 'Saginaw 282', street: '5225 Bay Rd', cityZip: 'Saginaw, MI 48604', tel: '(989) 270-0253' },
+{ name: 'Muskegon 523', street: '821 Apple Ave', cityZip: 'Muskegon, MI 49442', tel: '(231) 788-9822' },
+{ name: 'Bloomington 127', street: '9056 Penn Ave. S.', cityZip: 'Bloomington, MN 55431', tel: '(952) 392-4541' },
+{ name: 'New Hope 163', street: '4401 Winnetka Ave N', cityZip: 'New Hope, MN 55428', tel: '(763) 259-1862' },
+{ name: 'St. Paul 180', street: '572 University Ave W', cityZip: 'St Paul, MN 55103', tel: '(651) 780-7225' },
+{ name: 'Minneapolis 414', street: '304 E. Lake St.', cityZip: 'Minneapolis, MN 55408', tel: '(612) 278-0399' },
+{ name: 'Duluth 613', street: '106 West Superior Street', cityZip: 'Duluth, MN 55802', tel: '(218) 727-8139' },
+{ name: 'Kansas City 011', street: '3715 Broadway Street', cityZip: 'Kansas City, MO 64111', tel: '(816) 561-6224' },
+{ name: 'St. Louis 107', street: '10970 New Halls Ferry Road', cityZip: 'St. Louis, MO 63136', tel: '(314) 255-1705' },
+{ name: 'St. Louis 132', street: '165 Concord Plaza Shopping Center', cityZip: 'St. Louis, MO 63128', tel: '(314) 675-3163' },
+{ name: 'Columbia 271', street: '1325 Grindstone Plaza Dr.', cityZip: 'Columbia, MO 65201', tel: '(573) 615-1642' },
+{ name: 'Kansas City 410', street: '6000 Independence Avenue', cityZip: 'Kansas City, MO 64125', tel: '(816) 241-2749' },
+{ name: 'Springfield 620', street: '1536 S. Glenstone', cityZip: 'Springfield, MO 65804', tel: '(417) 866-7632' },
+{ name: 'Gulfport 122', street: '9245 Highway 49', cityZip: 'Gulfport, MS 39503', tel: '(228) 236-3305' },
+{ name: 'Jackson 225', street: '3835 Northbrook Dr.', cityZip: 'Jackson, MS 39206', tel: '(769) 235-7330' },
+{ name: 'Greensboro 117', street: '2920 Randleman Road, Suite B', cityZip: 'Greensboro, NC 27406', tel: '(336) 261-0251' },
+{ name: 'Winston-Salem 124', street: '3419 N. Patterson Ave', cityZip: 'Winston-Salem, NC 27105', tel: '(336) 837-4038' },
+{ name: 'Charlotte 203', street: '8404 N Tryon St', cityZip: 'Charlotte, NC 28262', tel: '(980) 265-3288' },
+{ name: 'Wilmington 228', street: '4346 Market St.', cityZip: 'Wilmington, NC 28403', tel: '(910) 473-5403' },
+{ name: 'Raleigh 231', street: '3514 Capital Blvd Suite 100', cityZip: 'Raleigh, NC 27604', tel: '(919) 578-3986' },
+{ name: 'Fayetteville 266', street: '3308 Bragg Blvd Suite 179', cityZip: 'Fayetteville, NC 28303', tel: '(910) 900-7307' },
+{ name: 'Gastonia 267', street: '1519 S York Rd', cityZip: 'Gastonia, NC 28052', tel: '(704) 830-0246' },
+{ name: 'Charlotte 418', street: '5500 Central Avenue', cityZip: 'Charlotte, NC 28212', tel: '(704) 535-1765' },
+{ name: 'Burlington 512', street: '2129 N. Church St.', cityZip: 'Burlington, NC 27217', tel: '(336) 395-5538' },
+{ name: 'Omaha 421', street: '3060 N. 90th St.', cityZip: 'Omaha, NE 68134', tel: '(402) 571-3662' },
+{ name: 'Hamilton 199', street: '2465 S Broad St, Suite 11', cityZip: 'Hamilton, NJ 08610', tel: '(609) 245-0346' },
+{ name: 'Edison 212', street: '1097 Inman Ave', cityZip: 'Edison, NJ 08820', tel: '(908) 409-0160' },
+{ name: 'Clifton 255', street: '536 Getty Ave', cityZip: 'Clifton, NJ 07011', tel: '(973) 330-3562' },
+{ name: 'Las Vegas 081', street: '3430 E. Tropicana Avenue, Suite 69', cityZip: 'Las Vegas, NV 89121', tel: '(702) 458-3962' },
+{ name: 'Las Vegas 529', street: '2575 Lindell Rd', cityZip: 'Las Vevas, NV 89146', tel: '(725) 433-7821' },
+{ name: 'Las Vegas 563', street: '3046 Vegas Drive', cityZip: 'Las Vegas, NV 89106', tel: '(725) 433-0529' },
+{ name: 'Greece 194', street: '3656 Dewey Ave', cityZip: 'Greece, NY 14616', tel: '(585) 629-5808' },
+{ name: 'Syracuse 196', street: '416 Grant Blvd', cityZip: 'Syracuse, NY 13206', tel: '(315) 728-9424' },
+{ name: 'Schenectady 229', street: '1594 State St.', cityZip: 'Schenectady, NY 12304', tel: '(518) 347-9168' },
+{ name: 'Rochester 232', street: '275 Westfall Rd', cityZip: 'Rochester, NY 14620', tel: '(585) 685-2191' },
+{ name: 'Cheektowaga 235', street: '140 Thruway Plaza Drive', cityZip: 'Cheektowaga, NY 14225', tel: '(716) 271-1548' },
+{ name: 'Niagara Falls 237', street: '2100 Military Rd', cityZip: 'Niagara Falls, NY 14304', tel: '(716) 513-0537' },
+{ name: 'Lackawanna 238', street: '1234 Abbott Rd Suite 250', cityZip: 'Lackawanna, NY 14218', tel: '(716) 328-1111' },
+{ name: 'Buffalo 239', street: '1845 Elmwood Ave', cityZip: 'Buffalo, NY 14207', tel: '(716) 796-0299' },
+{ name: 'Columbus 150', street: '2617 Northland Plaza Dr', cityZip: 'Columbus, OH 43231', tel: '(614) 568-2205' },
+{ name: 'Kent 160', street: '1600 S. Water St.', cityZip: 'Kent, OH 44240', tel: '(330) 552-5050' },
+{ name: 'Parma Heights 162', street: '6339 Olde York Rd', cityZip: 'Parma Heights, OH 44130', tel: '(440) 471-0460' },
+{ name: 'Elyria 165', street: '255 Midway Blvd', cityZip: 'Elyria, OH 44035', tel: '(440) 374-5027' },
+{ name: 'Toledo 175', street: '6014 Lewis Ave', cityZip: 'Toledo, OH 43612', tel: '(419) 930-6601' },
+{ name: 'Cincinnati 177', street: '4970 Delhi Rd', cityZip: 'Cincinnati, OH 45238', tel: '(513) 297-1844' },
+{ name: 'Cincinnati 189', street: '8348 Colerain Ave.', cityZip: 'Cincinnati, OH 45239', tel: '(513) 725-4175' },
+{ name: 'Warren 204', street: '2093 Elm Rd NE', cityZip: 'Warren, OH 44483', tel: '(330) 787-8356' },
+{ name: 'Willoughby Hills 222', street: '28301 Chardon Rd, Suite 5', cityZip: 'Willoughby Hills, OH 44092', tel: '(440) 571-3446' },
+{ name: 'Toledo 223', street: '2035 S. Reynolds Rd', cityZip: 'Toledo, OH 43614', tel: '(567) 803-0476' },
+{ name: 'Canton 236', street: '4341 Whipple Ave. NW', cityZip: 'Canton, OH 44718', tel: '(234) 804-0019' },
+{ name: 'Cleveland 401', street: '3204 West 25th Street', cityZip: 'Cleveland, OH 44109', tel: '(216) 398-0440' },
+{ name: 'Akron 402', street: '727 Grant St.', cityZip: 'Akron, OH 44311', tel: '(330) 535-4338' },
+{ name: 'Dayton 408', street: '850 N. Main St.', cityZip: 'Dayton, OH 45405', tel: '(937) 331-9186' },
+{ name: 'Columbus 409', street: '2650 N. High Street', cityZip: 'Columbus, OH 43202', tel: '(614) 267-4982' },
+{ name: 'Hamilton 494', street: '3255 Dixie Highway', cityZip: 'Hamilton, OH 45015', tel: '(513) 892-3156' },
+{ name: 'Youngstown 528', street: '3377 Mahoning Ave', cityZip: 'Youngstown, OH 44509', tel: '(234) 287-2758' },
+{ name: 'Medina 544', street: '1104 N Court St', cityZip: 'Medina, OH 44256', tel: '(330) 661-4139' },
+{ name: 'Columbus 561', street: '673 Harrisburg Pike', cityZip: 'Columbus, OH 42332', tel: '' },
+{ name: 'Cleveland 565', street: '6835 Broadway Ave Unit 10', cityZip: 'Cleveland, OH 44105', tel: '' },
+{ name: 'Tulsa 014', street: '824 S. Cheyenne Avenue', cityZip: 'Tulsa, OK 74119', tel: '(918) 582-4346' },
+{ name: 'Norman 020', street: '1327 E. Lindsey Street', cityZip: 'Norman, OK 73071', tel: '(405) 447-9977' },
+{ name: 'Mustang 243', street: '140 South Symes Ln', cityZip: 'Mustang, OK 73064', tel: '(405) 353-7194' },
+{ name: 'Tulsa 417', street: '5030 East Admiral Place', cityZip: 'Tulsa, OK 74115', tel: '(918) 838-2656' },
+{ name: 'Oklahoma City 422', street: '716 NW 23rd Street', cityZip: 'Oklahoma City, OK 73103', tel: '(405) 521-9204' },
+{ name: 'Lawton 452', street: '1216 NW Sheridan Road', cityZip: 'Lawton, OK 73505', tel: '(580) 248-4851' },
+{ name: 'Warr Acres 527', street: '5845 NW 50th St.', cityZip: 'Warr Acres, OK 73122', tel: '(405) 669-2869' },
+{ name: 'Medford 037', street: '1221 S. Riverside Avenue', cityZip: 'Medford, OR 97501', tel: '(541) 776-9926' },
+{ name: 'Gresham 055', street: '16225 NE Glisan Street', cityZip: 'Gresham, OR 97230', tel: '(503) 251-8822' },
+{ name: 'Hillsboro 126', street: '2009 SE Tualatin Valley Hwy', cityZip: 'Hillsboro, OR 97123', tel: '(503) 864-6175' },
+{ name: 'Philadelphia 145', street: '107 Franklin Mills Blvd #107', cityZip: 'Philadelphia, PA 19154', tel: '(215) 991-0213' },
+{ name: 'Philadelphia 147', street: '101 E. Olney Ave. Unit #10', cityZip: 'Philadelphia, PA 19120', tel: '(215) 554-6846' },
+{ name: 'York 148', street: '2430 Eastern Blvd', cityZip: 'York, PA 17402', tel: '(717) 767-2348' },
+{ name: 'Mechanicsburg 171', street: '4880 Carlisle Pike', cityZip: 'Mechanicsburg, PA 17050', tel: '(717) 620-5155' },
+{ name: 'McKeesport 192', street: '4313 Walnut St Suite 200', cityZip: 'McKeesport, PA 15132', tel: '(412) 465-1136' },
+{ name: 'Taylor 240', street: '1341 South Main Street, Suite 210', cityZip: 'Taylor, PA 18517', tel: '(570) 354-0386' },
+{ name: 'Temple 260', street: '5370 Allentown Pike', cityZip: 'Temple, PA 19560', tel: '(610) 320-2374' },
+{ name: 'State College 262', street: '265 Northland Center', cityZip: 'State College, PA 16803', tel: '(814) 826-1385' },
+{ name: 'Pittsburgh 269', street: '3470 William Penn Highway, Suite 900', cityZip: 'Pittsburgh, PA 15235', tel: '(412) 612-2091' },
+{ name: 'Yeadon 280', street: '617 Cedar Ave', cityZip: 'Yeadon, PA 19050', tel: '(610) 624-2929' },
+{ name: 'Wilkes Barre 286', street: '180 East End Center', cityZip: 'Wilkes-Barre, PA 18702', tel: '(570) 846-0094' },
+{ name: 'Allentown 294', street: '1417 Hanover Ave.', cityZip: 'Allentown, PA 18109', tel: '(484) 861-4242' },
+{ name: 'Aston 531', street: '4441 Pennell Rd', cityZip: 'Aston, PA 19014', tel: '(484) 766-5935' },
+{ name: 'Philadelphia 542', street: '3501 Cedar Street Space 7', cityZip: 'Philadelphia, PA 19134', tel: '(445) 456-2053' },
+{ name: 'San Juan 950', street: '90 Calle Alondra', cityZip: 'San Juan, PR 00924', tel: '(939) 236-3260' },
+{ name: 'Ponce 951', street: '4990 Calle Candido Hoyos Suite 199', cityZip: 'Ponce, PR 00717', tel: '(787) 987-2249' },
+{ name: 'Loiza 952', street: 'Plaza Noreste Shopping Center Carretera 3 KM 20.5 Villas de Loiza', cityZip: 'Loiza, PR 00772', tel: '(939) 234-5664' },
+{ name: 'Toa Baja 953', street: 'Carr #2 KM 16.2 Carr 866 Barrio Candelaria', cityZip: 'Toa Baja, PR 00949', tel: '(787) 794-7820' },
+{ name: 'East Providence 202', street: '66 Newport Ave', cityZip: 'East Providence, RI 02916', tel: '(401) 214-0587' },
+{ name: 'Johnston 242', street: '1450 Hartford Ave', cityZip: 'Johnston, RI 02919', tel: '(401) 214-0051' },
+{ name: 'Woonsocket 295', street: '1500 Diamond Hill Rd Suite K', cityZip: 'Woonsocket, RI 02895', tel: '(401) 216-1702' },
+{ name: 'Greenville 088', street: '3221 W. Blue Ridge Drive', cityZip: 'Greenville, SC 29611', tel: '(864) 962-4273' },
+{ name: 'Rock Hill 130', street: '1807 Cherry Road, Suite 129', cityZip: 'Rock Hill, SC 29732', tel: '(803) 227-0785' },
+{ name: 'Spartanburg 179', street: '630 Chesnee Hwy Unit 3', cityZip: 'Spartanburg, SC 29303', tel: '(864) 529-3919' },
+{ name: 'Columbia 217', street: '2768 Decker Blvd, Suite 300A', cityZip: 'Columbia, SC 29206', tel: '(803) 220-1441' },
+{ name: 'North Charleston 291', street: '7800 Rivers Ave, Suite 1620', cityZip: 'North Charleston, SC 29406', tel: '(854) 222-9478' },
+{ name: 'Columbia 612', street: '215 Assembly Street', cityZip: 'Columbia, SC 29201', tel: '(803) 254-2280' },
+{ name: 'Rapid City 288', street: '1555 Haines Ave', cityZip: 'Rapid City, SD 57701', tel: '(605) 600-5260' },
+{ name: 'Chattanooga 010', street: '1501 Riverside Drive, Suite 110', cityZip: 'Chattanooga, TN 37406', tel: '(423) 624-5555' },
+{ name: 'Memphis 052', street: '3923 Park Avenue', cityZip: 'Memphis, TN 38111', tel: '(901) 452-7558' },
+{ name: 'Madison 076', street: '820 Madison Square', cityZip: 'Madison, TN 37115', tel: '(615) 865-1246' },
+{ name: 'Murfreesboro 128', street: '1628 S. Middle Tennessee Blvd.', cityZip: 'Murfreesboro, TN 37130', tel: '(615) 869-0023' },
+{ name: 'Jackson 257', street: '843E N Parkway', cityZip: 'Jackson, TN 38305', tel: '(731) 281-9351' },
+{ name: 'Knoxville 405', street: '1616 Grand Avenue', cityZip: 'Knoxville, TN 37916', tel: '(865) 637-4052' },
+{ name: 'Chattanooga 407', street: '2809 E. 50th St.', cityZip: 'Chattanooga, TN 37407', tel: '(423) 826-4040' },
+{ name: 'Pleasant Grove 046', street: '10121 Lake June Road, Suite 503', cityZip: 'Dallas, TX 75217', tel: '(972) 329-0186' },
+{ name: 'Grand Prairie 049', street: '550 S. Carrier Parkway, 280', cityZip: 'Grand Prairie, TX 75051', tel: '(972) 263-3374' },
+{ name: 'Dallas 078', street: '2627 S. Lancaster Road', cityZip: 'Dallas, TX 75216', tel: '(214) 372-9901' },
+{ name: 'Mesquite 085', street: '3600 Gus Thomasson Rd., Suite 135', cityZip: 'Mesquite, TX 75150', tel: '(972) 755-5324' },
+{ name: 'Baytown 086', street: '1911 Garth Road', cityZip: 'Baytown, TX 77520', tel: '(281) 422-0783' },
+{ name: 'San Antonio 087', street: '14004 Nacogdoches Road', cityZip: 'San Antonio, TX 78247', tel: '(210) 320-3582' },
+{ name: 'Brownsville 113', street: '653 E. 13th St', cityZip: 'Brownsville, TX 78520', tel: '(956) 574-9200' },
+{ name: 'Brownsville 114', street: '1401 E. Washington St., Suite B', cityZip: 'Brownsville, TX 78520', tel: '(956) 982-0596' },
+{ name: 'Brownsville 135', street: '1601 E Price Rd, Suite C', cityZip: 'Brownsville, TX 78521', tel: '(956) 545-0152' },
+{ name: 'Houston 143', street: '11430 E Freeway, Suite 350', cityZip: 'Houston, TX 77029', tel: '(713) 807-7555' },
+{ name: 'Hidalgo 151', street: '1121 S. Bridge St', cityZip: 'Hidalgo, TX 78557', tel: '(956) 225-0143' },
+{ name: 'College Station 152', street: '2704 Texas Ave S. Suite 5', cityZip: 'College Station, TX 77840', tel: '(979) 764-1770' },
+{ name: 'San Antonio 157', street: '3524 South New Braunfels Ave Suite 112', cityZip: 'San Antonio, TX 78223', tel: '(830) 460-6067' },
+{ name: 'Houston 168', street: '6862 Highway 6 Suite 124', cityZip: 'Houston, TX 77083', tel: '(832) 476-9400' },
+{ name: 'Port Arthur 176', street: '4997 N. Twin City Hwy, Suite 130', cityZip: 'Port Arthur, TX 77642', tel: '(409) 300-3201' },
+{ name: 'Weslaco 184', street: '701 S International Blvd', cityZip: 'Weslaco, TX 78596', tel: '(956) 225-0290' },
+{ name: 'Harlingen 185', street: '603 N Ed Carey Dr', cityZip: 'Harlingen, TX 78550', tel: '(956) 226-0032' },
+{ name: 'Haltom City 188', street: '3141 Denton Highway', cityZip: 'Haltom City, TX 76117', tel: '(817) 204-0291' },
+{ name: 'El Paso 197', street: '2200 N. Yarbrough Dr. Suite K', cityZip: 'El Paso, TX 79925', tel: '(915) 201-2908' },
+{ name: 'Houston 208', street: '5740 W Little York Rd', cityZip: 'Houston, TX 77091', tel: '(832) 327-2638' },
+{ name: 'Houston 209', street: '16950 Ella Blvd, Suite 320', cityZip: 'Houston, TX 77090', tel: '(832) 909-0231' },
+{ name: 'Austin 230', street: '1800 East Parmer Lane', cityZip: 'Austin, TX 78754', tel: '(737) 787-1131' },
+{ name: 'El Paso 248', street: '8825 N Loop Dr', cityZip: 'El Paso, TX 79907', tel: '(915) 261-1124' },
+{ name: 'McAllen 258', street: '1900 S. 23rd St. #100', cityZip: 'McAllen, TX 78503', tel: '(956) 928-9942' },
+{ name: 'Houston 274', street: '5810 Bellfort St. Suite C', cityZip: 'Houston, TX 77033', tel: '(832) 650-0742' },
+{ name: 'McKinney 276', street: '801 North McDonald Street', cityZip: 'McKinney, TX 75069', tel: '(469) 498-9843' },
+{ name: 'El Paso 279', street: '6351 South Desert Blvd. Suite 212-B', cityZip: 'El Paso, TX 79932', tel: '(915) 226-0080' },
+{ name: 'Amarillo 283', street: '3440 Bell St. Suite 206', cityZip: 'Amarillo, TX 79109', tel: '(806) 513-5903' },
+{ name: 'Laredo 287', street: '2719 San Bernardo Ave', cityZip: 'Laredo, TX 78040', tel: '(956) 552-7841' },
+{ name: 'Ft. Worth 419', street: '4200 South Freeway Ste 1946', cityZip: 'Ft Worth, TX 76115', tel: '(817) 207-8554' },
+{ name: 'El Paso 508', street: '4820 Woodrow Bean Transmountain Dr', cityZip: 'El Paso, TX 79924', tel: '(915) 455-4250' },
+{ name: 'Dallas 510', street: '2837 S Westmoreland Rd', cityZip: 'Dallas, TX 75233', tel: '(469) 722-1267' },
+{ name: 'Tyler 520', street: '1946 E. Southeast Loop 323', cityZip: 'Tyler, TX 75701', tel: '(903) 747-1957' },
+{ name: 'Temple 521', street: '2603 Thornton Ln Suite 120', cityZip: 'Temple, TX 78502', tel: '(254) 800-8164' },
+{ name: 'Victoria 530', street: '3613 N Navarro St', cityZip: 'Victoria, TX 77901', tel: '(361) 465-4293' },
+{ name: 'Round Rock 532', street: '2800 S IH 35 Suite 210', cityZip: 'Round Rock, TX 78681', tel: '(737) 327-4487' },
+{ name: 'Dallas 537', street: '6515 Abrams Rd', cityZip: 'Dallas, TX 75231', tel: '(469) 902-0181' },
+{ name: 'Webster 548', street: '118 W. Bay Area Boulevard', cityZip: 'Webster, TX 77598', tel: '(346) 788-3568' },
+{ name: 'McAllen 549', street: '400 W. Nolana Ave Suite A1', cityZip: 'McAllen, TX 78501', tel: '' },
+{ name: 'Lubbock 550', street: '4841 50th St', cityZip: 'Lubbock, TX 79414', tel: '(806) 715-3065' },
+{ name: 'Corpus Christi 603', street: '4977-A Ayers St.', cityZip: 'Corpus Christi, TX 78415', tel: '(361) 883-5106' },
+{ name: 'Abilene 701', street: '3202-C N. 1st Street', cityZip: 'Abilene, TX 79603', tel: '(325) 673-7121' },
+{ name: 'Fredericksburg 703', street: '4400 Fredericksburg Road #105', cityZip: 'San Antonio, TX 78201', tel: '(210) 736-2824' },
+{ name: 'Lackland 706', street: '8725 Marbach Road, #275', cityZip: 'San Antonio, TX 78227', tel: '(210) 675-4521' },
+{ name: 'Midvale 273', street: '145 West 7200 South', cityZip: 'Midvale, UT 84047', tel: '(801) 304-3240' },
+{ name: 'Salt Lake City 627', street: '2978 South State Street', cityZip: 'S. Salt Lake City, UT 84115', tel: '(801) 485-5085' },
+{ name: 'Henrico 264', street: '5500 Lakeside Avenue', cityZip: 'Henrico, VA 23228', tel: '(804) 309-4102' },
+{ name: 'Norfolk 513', street: '5957 East Virginia Beach Blvd', cityZip: 'Norfolk, VA 23502', tel: '(757) 500-9000' },
+{ name: 'Richmond 524', street: '5724 Hopkins Rd Suite 6A', cityZip: 'Richmond, VA 23234', tel: '(804) 806-3628' },
+{ name: 'Vancouver 102', street: '11803 SE Mill Plain Blvd, Suite 101', cityZip: 'Vancouver, WA 98684', tel: '(360) 597-2691' },
+{ name: 'Federal Way 110', street: '2200 S. 314th St.', cityZip: 'Federal Way, WA 98003', tel: '(253) 275-2243' },
+{ name: 'Kent 112', street: '25818 102nd Place', cityZip: 'Kent, WA 98030', tel: '(206) 204-5089' },
+{ name: 'Olympia 517', street: '3415 Pacific Avenue South East Suite D-1A', cityZip: 'Olympia, WA 98501', tel: '(360) 764-2385' },
+{ name: 'Spokane Main 621', street: '2126 N. Monroe St.', cityZip: 'Spokane, WA 99205', tel: '(509) 340-6406' },
+{ name: 'Spokane Valley 622', street: '9621 East Sprague Avenue', cityZip: 'Spokane Valley, WA 99206', tel: '(509) 926-1881' },
+{ name: 'Beloit 005', street: '144 W. Grand Avenue', cityZip: 'Beloit, WI 53511', tel: '(608) 362-2966' },
+{ name: 'Racine 065', street: '4901 Washington Ave, Suite 28', cityZip: 'Racine, WI 53406', tel: '(262) 721-0148' },
+{ name: 'South Milwaukee 140', street: '2983 S. Chicago Ave', cityZip: 'South Milwaukee, WI 53172', tel: '(414) 751-1223' },
+{ name: 'Milwaukee 272', street: '5750 W Capitol Dr. Ste B', cityZip: 'Milwaukee, WI 53216', tel: '(262) 648-0883' },
+{ name: 'Eau Claire 514', street: '2621 N Clairemont Ave.', cityZip: 'Eau Claire, WI 54703', tel: '(534) 444-1046' },
+{ name: 'La Crosse 516', street: '4000 Mormon Coulee Rd', cityZip: 'La Crosse, WI 54601', tel: '(608) 668-2537' },
+{ name: 'Milwaukee 547', street: '2960 S. Chase Avenue', cityZip: 'Milwaukee, WI 53207', tel: '(414) 567-0522' },
+{ name: 'Parkersburg 178', street: '140 Park Center Dr.', cityZip: 'Parkersburg, WV 26101', tel: '(304) 707-3014' },
+];
+
+/** Robust matcher for "CityName 123" */
+function matchLocationByName(locationName) {
+  const cleaned = (locationName || '').trim().toLowerCase();
+
+  // 1) exact, case-insensitive
+  let m = sampleLocations.find(l => l.name.toLowerCase() === cleaned);
+  if (m) return m;
+
+  // 2) match by trailing 3-digit code (e.g., 950)
+  const codeMatch = cleaned.match(/\d{3}$/);
+  if (codeMatch) {
+    const code = codeMatch[0];
+    m = sampleLocations.find(l => l.name.endsWith(code));
+    if (m) return m;
+  }
+
+  // 3) partial contains as a last resort
+  m = sampleLocations.find(l => l.name.toLowerCase().includes(cleaned));
+  return m || null;
+}
+
+
+// Location search functionality
+const locationSearch = document.getElementById('locationSearch');
+const locationList = document.getElementById('locationList');
+const locNameInput = document.getElementById('locNameInput');
+const locStreetInput = document.getElementById('locStreetInput');
+const locCityInput = document.getElementById('locCityInput');
+const locTelInput = document.getElementById('locTelInput');
+let activeIndex = -1, filtered = sampleLocations.slice();
+
+function renderList(items) {
+  locationList.innerHTML = '';
+  if (!items.length) {
+    const empty = document.createElement('div');
+    empty.className = 'px-3 py-2 text-sm text-slate-500';
+    empty.textContent = 'No matches';
+    locationList.appendChild(empty);
+    return;
+  }
+  items.forEach((item, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'dropdown-item w-full text-left px-3 py-2 hover:bg-rose-50 focus:bg-rose-50 text-sm';
+    btn.setAttribute('data-index', idx.toString());
+    btn.innerHTML = `<div class="font-medium text-slate-800">${item.name}</div>
+      <div class="text-slate-500">${item.street}${item.cityZip ? ', ' + item.cityZip : ''}</div>
+      ${item.tel ? `<div class="text-slate-500">${item.tel}</div>` : ''}`;
+    btn.addEventListener('click', () => selectItem(idx));
+    locationList.appendChild(btn);
+  });
+}
+
+function selectItem(idx) {
+  const item = filtered[idx]; 
+  if (!item) return;
+  const isVirtual = /MS TEAMS/i.test(item.name);
+  toggleSecurity.checked = !isVirtual;
+  applyModeUI();
+
+  locationSearch.value = item.name;
+  locNameInput.value = item.name;
+  locStreetInput.value = item.street || '';
+  locCityInput.value = item.cityZip || '';
+  locTelInput.value = item.tel || '';
+
+  saveLocationFields();
+  enforceLocationCells();
+  updateComments(true);
+  locationList.classList.add('hidden');
+}
+
+locationSearch?.addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase();
+  filtered = !q ? sampleLocations.slice() : sampleLocations.filter(l =>
+    l.name.toLowerCase().includes(q) || l.street.toLowerCase().includes(q)
+  );
+  renderList(filtered);
+  locationList.classList.remove('hidden');
+});
+
+locationSearch?.addEventListener('focus', () => {
+  renderList(filtered);
+  locationList.classList.remove('hidden');
+});
+
+document.addEventListener('click', (e) => {
+  if (!locationList.contains(e.target) && e.target !== locationSearch) {
+    locationList.classList.add('hidden');
+  }
+});
+
+// Scheduler search functionality
+const schedulerNameInput = document.getElementById('schedulerNameInput');
+const schedulerList = document.getElementById('schedulerList');
+const schedulerPhoneInput = document.getElementById('schedulerPhoneInput');
+
+function renderSchedulerList(items) {
+  schedulerList.innerHTML = '';
+  items.forEach((item, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'dropdown-item w-full text-left px-3 py-2 hover:bg-rose-50 text-sm';
+    btn.innerHTML = `<div class="font-medium text-slate-800">${item.name}</div>
+      <div class="text-slate-500">${item.phone}</div>`;
+    btn.addEventListener('click', () => {
+      schedulerNameInput.value = item.name;
+      schedulerPhoneInput.value = item.phone;
+      localStorage.setItem('schedulerNameInput', item.name);
+      localStorage.setItem('schedulerPhoneInput', item.phone);
+      schedulerList.classList.add('hidden');
+    });
+    schedulerList.appendChild(btn);
+  });
+}
+
+schedulerNameInput?.addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase();
+  const filtered = sampleSchedulers.filter(s => s.name.toLowerCase().includes(q));
+  renderSchedulerList(filtered);
+  schedulerList.classList.remove('hidden');
+});
+
+schedulerNameInput?.addEventListener('focus', () => {
+  renderSchedulerList(sampleSchedulers);
+  schedulerList.classList.remove('hidden');
+});
+
+// Hiring manager search functionality
+const hiringManagerInput = document.getElementById('hiringManagerInput');
+const hiringManagerList = document.getElementById('hiringManagerList');
+
+function renderHiringManagerList(items) {
+  hiringManagerList.innerHTML = '';
+  if (!items.length) {
+    const empty = document.createElement('div');
+    empty.className = 'px-3 py-2 text-sm text-slate-500';
+    empty.textContent = 'No matches';
+    hiringManagerList.appendChild(empty);
+    return;
+  }
+  items.forEach((item, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'dropdown-item w-full text-left px-3 py-2 hover:bg-rose-50 text-sm';
+    btn.innerHTML = `<div class="font-medium text-slate-800">${item}</div>`;
+    btn.addEventListener('click', () => {
+      hiringManagerInput.value = item;
+      localStorage.setItem('hiringManagerInput', item);
+      hiringManagerList.classList.add('hidden');
+    });
+    hiringManagerList.appendChild(btn);
+  });
+}
+
+hiringManagerInput?.addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase();
+  const allManagers = getSavedHiringManagers();
+  const filtered = allManagers.filter(h => h.toLowerCase().includes(q));
+  renderHiringManagerList(filtered);
+  hiringManagerList.classList.remove('hidden');
+});
+
+hiringManagerInput?.addEventListener('focus', () => {
+  renderHiringManagerList(getSavedHiringManagers());
+  hiringManagerList.classList.remove('hidden');
+});
+
+hiringManagerInput?.addEventListener('blur', (e) => {
+  // Save the hiring manager when user finishes typing
+  setTimeout(() => {
+    if (e.target.value.trim()) {
+      saveHiringManager(e.target.value.trim());
+    }
+  }, 100);
+});
+
+function saveLocationFields() {
+  const data = {
+    search: locationSearch?.value || '',
+    name: locNameInput?.value || '',
+    street: locStreetInput?.value || '',
+    city: locCityInput?.value || '',
+    tel: locTelInput?.value || ''
+  };
+  localStorage.setItem('loc', JSON.stringify(data));
+}
+
+[locationSearch, locNameInput, locStreetInput, locCityInput, locTelInput].forEach(el => {
+  el?.addEventListener('input', saveLocationFields);
+});
+
+// Time picker functionality
+const timePicker = document.getElementById('timePicker');
+const tpHour = document.getElementById('tpHour');
+const tpMinute = document.getElementById('tpMinute');
+const tpAmPm = document.getElementById('tpAmPm');
+const tpAdd = document.getElementById('tpAdd');
+const tpCancel = document.getElementById('tpCancel');
+let currentTimeCell = null;
+let selectedTz = 'CST';
+let selectedDuration = 30;
+
+// Populate time picker dropdowns
+for (let h = 1; h <= 12; h++) {
+  const opt = document.createElement('option');
+  opt.value = h;
+  opt.textContent = h.toString().padStart(2, '0');
+  tpHour.appendChild(opt);
+}
+for (let m = 0; m < 60; m += 15) {
+  const opt = document.createElement('option');
+  opt.value = m;
+  opt.textContent = m.toString().padStart(2, '0');
+  tpMinute.appendChild(opt);
+}
+
+// Time zone buttons
+document.querySelectorAll('.tzBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tzBtn').forEach(b => b.classList.remove('bg-rose-600', 'text-white'));
+    btn.classList.add('bg-rose-600', 'text-white');
+    selectedTz = btn.dataset.tz;
+    updateComments(true); // Update comments when timezone changes
+  });
+});
+
+// Duration buttons
+document.querySelectorAll('.durBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.durBtn').forEach(b => b.classList.remove('bg-rose-600', 'text-white'));
+    btn.classList.add('bg-rose-600', 'text-white');
+    selectedDuration = parseInt(btn.dataset.dur);
+  });
+});
+
+// Set default selections
+document.querySelector('.tzBtn[data-tz="CST"]').classList.add('bg-rose-600', 'text-white');
+document.querySelector('.durBtn[data-dur="30"]').classList.add('bg-rose-600', 'text-white');
+
+// Time picker actions
+tpAdd.addEventListener('click', () => {
+  if (!currentTimeCell) return;
+  
+  const h = parseInt(tpHour.value);
+  const m = parseInt(tpMinute.value);
+  const ampm = tpAmPm.value;
+  
+  const timeStr = buildTimeString(h, m, ampm, selectedTz);
+  currentTimeCell.textContent = timeStr;
+  
+  const row = currentTimeCell.closest('tr');
+  
+  // If this is a start time cell, auto-fill end time and sync timezone
+  if (currentTimeCell.classList.contains('start-time')) {
+    const endTimeCell = row.querySelector('.end-time');
+    if (endTimeCell) {
+      // Always update end time with new duration and timezone
+      const endTime = addMinutes(h, m, ampm, selectedDuration);
+      const endTimeStr = buildTimeString(endTime.h, endTime.m, endTime.ampm, selectedTz);
+      endTimeCell.textContent = endTimeStr;
+    }
+  }
+  
+  // If this is an end time cell, sync the timezone with start time
+  if (currentTimeCell.classList.contains('end-time')) {
+    const startTimeCell = row.querySelector('.start-time');
+    if (startTimeCell && startTimeCell.textContent.trim()) {
+      const startTime = parseTimeString(startTimeCell.textContent);
+      if (startTime && startTime.tz !== selectedTz) {
+        // Update start time with new timezone
+        const startTimeStr = buildTimeString(startTime.h, startTime.m, startTime.ampm, selectedTz);
+        startTimeCell.textContent = startTimeStr;
+      }
+    }
+  }
+  
+  timePicker.classList.add('hidden');
+  currentTimeCell = null;
+});
+
+tpCancel.addEventListener('click', () => {
+  timePicker.classList.add('hidden');
+  currentTimeCell = null;
+});
+
+// Table management
+let rowCounter = 0;
+
+function createRow(tableNum = 1) {
+  rowCounter++;
+  const tbody = document.getElementById(tableNum === 1 ? 'rows' : 'rows2');
+  const row = document.createElement('tr');
+  row.className = 'hover:bg-slate-50';
+  
+  const defaultLocation = toggleSecurity.checked ? 
+    "Interviewer's Office" : 
+    (interviewType === 'Telephone' ? 'Telephone' : 'Microsoft Teams');
+  
+  row.innerHTML = `
+    <td class="border border-slate-300 px-1 py-1">
+      <div class="start-time time-cell cursor-pointer hover:bg-rose-50 p-1 rounded text-center text-xs min-h-5"></div>
+    </td>
+    <td class="border border-slate-300 px-1 py-1">
+      <div class="end-time time-cell cursor-pointer hover:bg-rose-50 p-1 rounded text-center text-xs min-h-5"></div>
+    </td>
+    <td class="border border-slate-300 px-2 py-1">
+      <div class="relative">
+        <textarea class="interviewer-input w-full border-none bg-transparent outline-none text-xs p-1 text-center resize-none overflow-hidden" placeholder="Enter interviewer name and title" rows="1" style="min-height: 1.25rem; line-height: 1.4;"></textarea>
+        <div class="interviewer-list hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-md shadow-lg max-h-60 overflow-auto"></div>
+      </div>
+    </td>
+    <td class="border border-slate-300 px-1 py-1">
+      <textarea class="location-cell w-full border-none bg-transparent outline-none text-xs p-1 resize-none overflow-hidden text-center" rows="1" style="min-height: 1.25rem; line-height: 1.4;">${defaultLocation}</textarea>
+    </td>
+    <td class="border border-slate-300 px-1 py-1 no-print">
+      <button type="button" class="remove-row px-1 py-1 bg-red-600 text-white rounded text-xs hover:bg-red-700">Remove</button>
+    </td>
+  `;
+  
+  tbody.appendChild(row);
+  
+  // Add time cell click handlers
+  row.querySelectorAll('.time-cell').forEach(cell => {
+    cell.addEventListener('click', (e) => {
+      currentTimeCell = e.target;
+      
+      // Show/hide duration section based on cell type
+      const durationSection = document.querySelector('#timePicker .space-y-1:last-of-type');
+      const isStartTime = cell.classList.contains('start-time');
+      if (durationSection) {
+        durationSection.style.display = isStartTime ? 'block' : 'none';
+      }
+      
+      // Parse existing time if any
+      const existing = parseTimeString(cell.textContent);
+      if (existing) {
+        tpHour.value = existing.h;
+        tpMinute.value = existing.m;
+        tpAmPm.value = existing.ampm;
+        selectedTz = existing.tz;
+        document.querySelectorAll('.tzBtn').forEach(b => b.classList.remove('bg-rose-600', 'text-white'));
+        document.querySelector(`.tzBtn[data-tz="${existing.tz}"]`)?.classList.add('bg-rose-600', 'text-white');
+      }
+      
+      // Position and show time picker
+      const rect = cell.getBoundingClientRect();
+      const pickerWidth = 260;
+      const pickerHeight = isStartTime ? 200 : 160; // Shorter for end time
+      
+      // Calculate optimal position
+      let left = Math.min(rect.left, window.innerWidth - pickerWidth - 10);
+      let top = rect.bottom + 5;
+      
+      // If picker would go below viewport, position above the cell
+      if (top + pickerHeight > window.innerHeight) {
+        top = rect.top - pickerHeight - 5;
+      }
+      
+      // Ensure picker stays within viewport bounds
+      left = Math.max(10, left);
+      top = Math.max(10, top);
+      
+      timePicker.style.left = left + 'px';
+      timePicker.style.top = top + 'px';
+      timePicker.classList.remove('hidden');
+    });
+  });
+  
+  // Add remove button handler
+  row.querySelector('.remove-row').addEventListener('click', () => {
+    row.remove();
+  });
+  
+  // Add auto-resize functionality for textareas
+  const interviewerInput = row.querySelector('.interviewer-input');
+  const locationInput = row.querySelector('.location-cell');
+  
+  // Auto-resize function
+  function autoResizeTableTextarea(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.max(24, textarea.scrollHeight) + 'px';
+  }
+  
+  // Add auto-resize listeners
+  if (interviewerInput) {
+    interviewerInput.addEventListener('input', () => autoResizeTableTextarea(interviewerInput));
+  }
+  if (locationInput) {
+    locationInput.addEventListener('input', () => autoResizeTableTextarea(locationInput));
+  }
+  
+  // Add interviewer dropdown functionality
+  const interviewerList = row.querySelector('.interviewer-list');
+  
+  if (interviewerInput && interviewerList) {
+    // Function to render interviewer dropdown
+    function renderInterviewerList(items) {
+      interviewerList.innerHTML = '';
+      if (!items.length) {
+        const empty = document.createElement('div');
+        empty.className = 'px-3 py-2 text-sm text-slate-500';
+        empty.textContent = 'No saved interviewers';
+        interviewerList.appendChild(empty);
+        return;
+      }
+      items.forEach((item, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'dropdown-item w-full text-left px-3 py-2 hover:bg-rose-50 focus:bg-rose-50 text-sm';
+        btn.innerHTML = `<div class="font-medium text-slate-800">${item}</div>`;
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          interviewerInput.value = item;
+          interviewerList.classList.add('hidden');
+          updateComments(true);
+        });
+        interviewerList.appendChild(btn);
+      });
+    }
+
+    // Input event listener
+    interviewerInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const allInterviewers = getSavedInterviewers();
+      const filtered = q ? allInterviewers.filter(i => i.toLowerCase().includes(q)) : allInterviewers;
+      renderInterviewerList(filtered);
+      if (filtered.length > 0) {
+        interviewerList.classList.remove('hidden');
+      } else {
+        interviewerList.classList.add('hidden');
+      }
+      updateComments(true);
+    });
+
+    // Focus event listener
+    interviewerInput.addEventListener('focus', () => {
+      const allInterviewers = getSavedInterviewers();
+      renderInterviewerList(allInterviewers);
+      if (allInterviewers.length > 0) {
+        interviewerList.classList.remove('hidden');
+      }
+    });
+
+    // Blur event listener to save interviewer
+    interviewerInput.addEventListener('blur', (e) => {
+      setTimeout(() => {
+        if (e.target.value.trim()) {
+          saveInterviewer(e.target.value.trim());
+        }
+        interviewerList.classList.add('hidden');
+      }, 150);
+    });
+
+    // Keyboard navigation
+    interviewerInput.addEventListener('keydown', (e) => {
+      const items = interviewerList.querySelectorAll('.dropdown-item');
+      if (!items.length) return;
+
+      let activeIndex = Array.from(items).findIndex(item => item.classList.contains('bg-rose-50'));
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (activeIndex < items.length - 1) activeIndex++;
+        else activeIndex = 0;
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (activeIndex > 0) activeIndex--;
+        else activeIndex = items.length - 1;
+      } else if (e.key === 'Enter' && activeIndex >= 0) {
+        e.preventDefault();
+        items[activeIndex].click();
+        return;
+      } else if (e.key === 'Escape') {
+        interviewerList.classList.add('hidden');
+        return;
+      }
+
+      // Update active item
+      items.forEach((item, idx) => {
+        item.classList.toggle('bg-rose-50', idx === activeIndex);
+      });
+    });
+  }
+  
+  return row;
+}
+
+function enforceLocationCells() {
+  const defaultLocation = toggleSecurity.checked ? 
+    "Interviewer's Office" : 
+    (interviewType === 'Telephone' ? 'Telephone' : 'Microsoft Teams');
+  
+  document.querySelectorAll('.location-cell').forEach(cell => {
+    cell.value = defaultLocation;
+    // Auto-resize after setting value
+    cell.style.height = 'auto';
+    cell.style.height = Math.max(24, cell.scrollHeight) + 'px';
+  });
+}
+
+// Button event listeners
+document.getElementById('addRow').addEventListener('click', () => {
+  // If the user is focused inside a table, add a row to THAT table.
+  const active = document.activeElement;
+  const section = active && active.closest && active.closest('.table-section');
+  let tableNum = 1;
+
+  if (section && section.dataset && section.dataset.table) {
+    tableNum = parseInt(section.dataset.table, 10) || 1;
+  } else {
+    // Fallback: if table 2 is visible and nothing focused, add to table 2; else table 1
+    const t2 = document.getElementById('table2');
+    if (t2 && !t2.classList.contains('hidden')) tableNum = 2;
+  }
+
+  createRow(tableNum);
+});
+
+document.getElementById('addTable').addEventListener('click', () => {
+  const table2 = document.getElementById('table2');
+  table2.classList.remove('hidden');
+  if (!document.querySelector('#rows2 tr')) {
+    createRow(2);
+  }
+});
+
+document.getElementById('removeTable2').addEventListener('click', () => {
+  document.getElementById('table2').classList.add('hidden');
+  document.getElementById('rows2').innerHTML = '';
+});
+
+document.getElementById('clearRows').addEventListener('click', () => {
+  if (confirm('Are you sure you want to clear all rows?')) {
+    document.getElementById('rows').innerHTML = '';
+    document.getElementById('rows2').innerHTML = '';
+    document.getElementById('table2').classList.add('hidden');
+  }
+});
+
+// Comments functionality
+
+// Smartsheet parsing
+document.getElementById('smartsheetParse').addEventListener('click', () => {
+  const input = document.getElementById('smartsheetInput').value.trim();
+  const status = document.getElementById('parseStatus');
+  
+  if (!input) {
+    status.textContent = 'Please paste a Smartsheet line first.';
+    status.className = 'text-sm text-red-600';
+    return;
+  }
+  
+  try {
+    // First, let's preserve the original input and work with it more carefully
+    let workingText = input;
+    let foundMSTeams = false;
+    
+    // Remove R-###### references but keep everything else
+    workingText = workingText.replace(/R-\d+\s*/gi, '');
+    
+    // Remove (Evergreen) but keep other parenthetical content
+    workingText = workingText.replace(/\(Evergreen\)\s*/gi, '');
+    
+    // Split by dashes with spaces, but be more careful about preserving content
+    const parts = workingText.split(/\s-\s/).map(p => p.trim()).filter(p => p);
+    
+    let positionTitle = '';
+    let locationName = '';
+    let candidateName = '';
+    let positionParts = [];
+    
+    // First, check the entire input for MS Teams patterns before processing parts
+    if (/MS Teams\s*\(Audio\)/i.test(input)) {
+      interviewType = 'MS Teams (Audio)';
+      toggleSecurity.checked = false;
+      foundMSTeams = true;
+      applyModeUI();
+      updateLocationFields();
+      enforceLocationCells();
+      updateComments(true);
+    } else if (/MS Teams\s*\(Video\)/i.test(input) || /^MS Teams/i.test(input)) {
+      interviewType = 'MS Teams (Video)';
+      toggleSecurity.checked = false;
+      foundMSTeams = true;
+      applyModeUI();
+      updateLocationFields();
+      enforceLocationCells();
+      updateComments(true);
+    }
+    
+    parts.forEach((part, index) => {
+      const trimmed = part.trim();
+      
+      // Skip MS Teams parts as we've already handled them above
+      if (/MS Teams/i.test(trimmed)) {
+        return;
+      }
+      
+      // Check for Telephone at the beginning
+      if (index === 0 && /^Telephone/i.test(trimmed)) {
+        interviewType = 'Telephone';
+        toggleSecurity.checked = false;
+        applyModeUI();
+        updateLocationFields();
+        enforceLocationCells();
+        updateComments(true);
+        return;
+      }
+      
+      // Look for Face-to-Face at the beginning
+      if (index === 0 && /^Face.to.Face/i.test(trimmed)) {
+        interviewType = 'Face-to-Face';
+        toggleSecurity.checked = true;
+        applyModeUI();
+        updateLocationFields();
+        enforceLocationCells();
+        updateComments(true);
+        return;
+      }
+      
+      // Look for names (capitalized words, typically 2-3 words, no job keywords)
+      if (/^[A-Z][a-z]+ [A-Z][a-z]+( [A-Z][a-z]+)?$/.test(trimmed) && 
+          !/(technician|engineer|manager|analyst|coordinator|specialist|director|supervisor|assistant|representative|screener|receptionist|clerk|administrator|customer service|donor support|sales|support|service)/i.test(trimmed)) {
+        candidateName = trimmed;
+        return;
+      }
+      
+      // Check if this looks like a location but include it in position title
+      if (/^[A-Za-z\s]+\s+\d{3}$/.test(trimmed)) {
+        // This is a location, but we want it in the position title
+        positionParts.push(trimmed);
+        // Also capture it as a location for lookup (only if not MS Teams)
+        if (!foundMSTeams) {
+          locationName = trimmed;
+        }
+        return;
+      }
+      
+      // Skip "External" as it's not part of the position
+      if (trimmed.toLowerCase() === 'external') {
+        return;
+      }
+      
+      // Look for dates
+      if (/\d{1,2}\/\d{1,2}\/\d{2,4}|\d{4}-\d{2}-\d{2}/.test(trimmed)) {
+        const dateMatch = trimmed.match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})|(\d{4})-(\d{2})-(\d{2})/);
+        if (dateMatch) {
+          let dateStr;
+          if (dateMatch[1]) {
+            const month = dateMatch[1].padStart(2, '0');
+            const day = dateMatch[2].padStart(2, '0');
+            const year = dateMatch[3].length === 2 ? '20' + dateMatch[3] : dateMatch[3];
+            dateStr = `${year}-${month}-${day}`;
+          } else {
+            dateStr = trimmed;
+          }
+          document.getElementById('dateInput').value = dateStr;
+          localStorage.setItem('dateInput', dateStr);
+          updateMirroredDate();
+        }
+        return;
+      }
+      
+      // Everything else should be part of the position title
+      // This includes things like "Customer Service", "Donor Support Technician", "(Bilingual)", etc.
+      if (trimmed) {
+        positionParts.push(trimmed);
+      }
+    });
+    
+    // Combine all position parts
+    if (positionParts.length > 0) {
+      positionTitle = positionParts.join(' - ');
+    }
+    
+    // Set candidate name
+    if (candidateName) {
+      document.getElementById('applicantInput').value = candidateName;
+      localStorage.setItem('applicantInput', candidateName);
+    }
+    
+    // Set position title
+    if (positionTitle) {
+      document.getElementById('positionInput').value = positionTitle;
+      localStorage.setItem('positionInput', positionTitle);
+      autoResizeTextarea(document.getElementById('positionInput'));
+    }
+    
+    // Find and populate location details if location name was found AND we didn't find MS Teams
+    if (locationName && !foundMSTeams) {
+      const matchingLocation = matchLocationByName(locationName);
+if (matchingLocation) {
+        // Set to onsite mode since we found a physical location
+        toggleSecurity.checked = true;
+        applyModeUI();
+        
+        // Populate location fields
+        locationSearch.value = matchingLocation.name;
+        locNameInput.value = matchingLocation.name;
+        locStreetInput.value = matchingLocation.street || '';
+        locCityInput.value = matchingLocation.cityZip || '';
+        locTelInput.value = matchingLocation.tel || '';
+        
+        saveLocationFields();
+        enforceLocationCells();
+        updateComments(true);
+      }
+    }
+    
+    status.textContent = 'Data parsed and applied successfully!';
+    status.className = 'text-sm text-green-600';
+    document.getElementById('smartsheetInput').value = '';
+    
+  } catch (error) {
+    console.error('Parsing error:', error);
+    status.textContent = `Error: ${error.message}`;
+    status.className = 'text-sm text-red-600';
+  }
+});
+
+
+// ---- SINGLE SOURCE OF TRUTH: updateComments ----
+function updateComments(triggeredByToggle = false) {
+  const box = document.getElementById('commentsBox');
+  if (!box) return;
+
+  // Grab FIRST non-empty interviewer from the Interviewer / Title column
+  const firstFieldValue =
+    (Array.from(document.querySelectorAll(
+      '.interviewer-input, ' +
+      '#rows td:nth-child(3) textarea, #rows2 td:nth-child(3) textarea'
+    ))
+    .map(el => (el.value ?? el.textContent ?? '').trim())
+    .find(Boolean)) || '';
+
+  const firstName = firstFieldValue ? firstFieldValue.split('/')[0].trim() : '[Interviewer Name]';
+
+  if (document.getElementById('toggleSecurity')?.checked) {
+    // ONSITE — show ONLY this sentence
+    box.innerHTML = `Upon arrival for your onsite interview, ask for ${firstName}.`;
+  } else {
+    // VIRTUAL — Teams fallback + timezone (no blank line)
+    const tzText = (typeof selectedTz !== 'undefined' && selectedTz)
+      ? ` All interviews above are listed in ${selectedTz}.`
+      : '';
+    box.innerHTML =
+      `In the event you are unable to connect to the TEAMS meeting, the interviewer will call you directly at ` +
+      `<input type="tel" value="(xxx) xxx-xxxx" class="border-none border-b border-gray-400 bg-transparent outline-none" style="width: 120px;">` +
+      tzText;
+  }
+}
+
+
+// ---- Comments auto-sync delegation (interviewer changes) ----
+(function attachCommentsDelegation(){
+  const tc = document.getElementById('tablesContainer');
+  if (!tc) return;
+
+  // Update comments whenever an interviewer field changes (typing/paste)
+  tc.addEventListener('input', (e) => {
+    if (e.target && e.target.classList && e.target.classList.contains('interviewer-input')) {
+      updateComments();
+      return;
+    }
+    // Fallback: if user edits a 3rd-column cell directly
+    const td = e.target.closest && e.target.closest('td');
+    if (td && td.parentElement) {
+      const colIndex = Array.from(td.parentElement.children).indexOf(td);
+      if (colIndex === 2) updateComments();
+    }
+  });
+
+  // When an interviewer is selected from a dropdown item
+  tc.addEventListener('click', (e) => {
+    if (e.target && e.target.classList && e.target.classList.contains('dropdown-item')) {
+      updateComments();
+    }
+  });
+
+  window.addEventListener('load', updateComments);
+})();
+
+
+// ---- CLEAR ALL FIELDS (no localStorage) ----
+(function attachClearAll(){
+  const btn = document.getElementById('clearAllBtn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    if (!confirm('Clear ALL visible fields and tables? Saved options will remain.')) return;
+
+    // Clear text inputs, tel, date, textareas
+    document.querySelectorAll('input[type="text"], input[type="tel"], input[type="date"], textarea')
+      .forEach(el => {
+        el.value = '';
+        if (el.tagName === 'TEXTAREA') el.style.height = 'auto';
+      });
+
+    // Reset selects (if any)
+    document.querySelectorAll('select').forEach(sel => sel.selectedIndex = 0);
+
+    // Clear contenteditable fields (e.g., Comments)
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => el.innerHTML = '');
+
+    // Clear both tables and hide table 2
+    ['rows','rows2'].forEach(id => {
+      const tbody = document.getElementById(id);
+      if (tbody) tbody.innerHTML = '';
+    });
+    const table2 = document.getElementById('table2');
+    if (table2) table2.classList.add('hidden');
+
+    // Re-apply UI so defaults and computed fields are correct
+    if (typeof applyModeUI === 'function') applyModeUI();
+    if (typeof updateMirroredDate === 'function') updateMirroredDate();
+    if (typeof updateLocationFields === 'function') updateLocationFields();
+    if (typeof enforceLocationCells === 'function') enforceLocationCells();
+    if (typeof updateComments === 'function') updateComments(true);
+
+    alert('All visible fields cleared.');
+  });
+})();
+
+// Initialize
+loadSavedData();
+updateMirroredDate();
+updateLocationFields();
+createRow(1);
+updateComments(true);
+
+// Hide time picker when clicking outside
+document.addEventListener('click', (e) => {
+  if (!timePicker.contains(e.target) && !e.target.classList.contains('time-cell')) {
+    timePicker.classList.add('hidden');
+    currentTimeCell = null;
+  }
+});
+
+// Hide dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if (!schedulerList.contains(e.target) && e.target !== schedulerNameInput) {
+    schedulerList.classList.add('hidden');
+  }
+  if (!hiringManagerList.contains(e.target) && e.target !== hiringManagerInput) {
+    hiringManagerList.classList.add('hidden');
+  }
+  
+  // Hide all interviewer dropdowns when clicking outside
+  document.querySelectorAll('.interviewer-list').forEach(list => {
+    const input = list.parentElement.querySelector('.interviewer-input');
+    if (!list.contains(e.target) && e.target !== input) {
+      list.classList.add('hidden');
+    }
+  });
+});
+
+renderList(sampleLocations);
+</script>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98914399c001d647',t:'MTc1OTU0NTA5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
