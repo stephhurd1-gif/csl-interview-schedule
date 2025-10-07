@@ -1894,17 +1894,15 @@ function updateComments(triggeredByToggle = false) {
       ? ` All interviews above are listed in ${selectedTz}.`
       : '';
     box.innerHTML = 
-      `Upon arrival for your onsite interview, ask for ${firstName}' + '<br>' + 
-      tzText;
+      `Upon arrival for your onsite interview, ask for ${firstName}'<br>` + tzText;
   } else {
     // VIRTUAL — Teams fallback + timezone (no blank line)
     const tzText = (typeof selectedTz !== 'undefined' && selectedTz)
       ? ` All interviews above are listed in ${selectedTz}.`
       : '';
     box.innerHTML =
-      `In the event you are unable to connect to the TEAMS meeting, the interviewer will call you directly at` + 
-      `<input type="tel" value="(xxx) xxx-xxxx" class="border-none border-b border-gray-400 bg-transparent outline-none" style="width: 120px;">` + '<br>' +
-       tzText;
+      `In the event you are unable to connect to the TEAMS meeting, the interviewer will call you directly at ` + `<input type="tel" value="(xxx) xxx-xxxx" class="border-none border-b border-gray-400 bg-transparent outline-none" style="width: 120px;"><br>` + tzText;
+
   }
 }
 
