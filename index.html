@@ -65,7 +65,7 @@ body {
     page-break-inside: avoid !important;
   }
   
-  h1 {
+  h1#scheduleTitle {
     color: #E41C23 !important;
     font-weight: semibold !important;
   }
@@ -678,13 +678,18 @@ document.getElementById('previewBtn').addEventListener('click', () => {
         box-shadow: none !important;
         border-radius: 0.5rem !important;
       }
-      h1 {
+      h1#scheduleTitle {
         color: #E41C23 !important;
-      }
-      th { 
-        background: #E41C23 !important; 
-        color: white !important;
-      }
+        font-family: Arial, sans-serif !important;
+      font-weight: 600 !important;
+    }
+    h1#scheduleTitle, img[alt="CSL Logo"] {
+      page-break-inside: avoid !important;
+    }
+    th { 
+      background: #E41C23 !important; 
+      color: white !important;
+    }
       .security-note {
         background: white !important;
         border: none !important;
