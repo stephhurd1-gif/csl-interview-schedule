@@ -717,10 +717,30 @@ document.getElementById('previewBtn').addEventListener('click', () => {
       #commentsBox input {
         border-bottom: 1px solid #9ca3af !important;
         color: #0f172a !important;
-     }
-    }    
-  `;
-  document.head.appendChild(previewStyle);
+      }
+      .date-container {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    #mirroredDateInput,
+    #mirroredDateInput2 {
+      font-size: 0.875rem !important;   /* ≈14px */
+      height: auto !important;
+      padding: 2px 4px !important;
+      margin: 0 !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 4px !important;
+      background: white !important;
+      color: #0f172a !important;
+      width: auto !important;
+      min-width: 140px !important;
+    }
+  }    
+`;
+document.head.appendChild(previewStyle);
 
   const noPrintElements = document.querySelectorAll('.no-print');
   const originalDisplays = [];
