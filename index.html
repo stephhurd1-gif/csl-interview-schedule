@@ -331,7 +331,7 @@ body {
       <div class="ml-3">
         <div class="flex-items: baseline flex-nowrap">
           <span class="security-note-title" style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #dc2626; text-decoration: underline;">Security Note:</span>          
-          <span style="margin-left: 8px; font-family: Arial, sans-serif; font-size: 13px; color: #000000;">In accordance with CSL's Enterprise Security protocols, all visitors are required to be registered in advance. When Visitors arrive on site, visitors must register at the reception area. Visitors must wear and prominently display their assigned identification badge while onsite. All visitors must be escorted at all times, including when returning to the reception area.</span>
+          <span style="margin-left: 4px; font-family: Arial, sans-serif; font-size: 13px; color: #000000;">In accordance with CSL's Enterprise Security protocols, all visitors are required to be registered in advance. When Visitors arrive on site, visitors must register at the reception area. Visitors must wear and prominently display their assigned identification badge while onsite. All visitors must be escorted at all times, including when returning to the reception area.</span>
         </div>
       </div>
     </div>
@@ -1727,7 +1727,18 @@ document.getElementById('clearRows').addEventListener('click', () => {
 document.getElementById('smartsheetParse').addEventListener('click', () => {
   const input = document.getElementById('smartsheetInput').value.trim();
   const status = document.getElementById('parseStatus');
-  
+
+  // --- NEW: hide security note when "Internal" appears ---
+  if (/Internal/i.test(input)) {
+    securityNote?.classList.add('hidden');
+    localStorage.setItem('hideSecurityNote', '1');
+  } else {
+    localStorage.removeItem('hideSecurityNote');
+    // ensure normal visibility according to mode
+    if (typeof applyModeUI === 'function') applyModeUI();
+  }
+  // --- end new code ---
+
   if (!input) {
     status.textContent = 'Please paste a Smartsheet line first.';
     status.className = 'text-sm text-red-600';
