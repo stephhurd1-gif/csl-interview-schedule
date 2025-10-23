@@ -251,21 +251,24 @@ body {
   .container * {
     border: none !important;
     box-shadow: none !important;
-    filter: none !important
+    filter: none !important;
   }
 }
  @media print {
   /* Match builder mode: remove inner border, keep parent box */
-  #mirroredDateInput,
-  #mirroredDateInput2 {
-    font-size: 0.9375rem !important;
-    padding: 0px 2px !important;
-    background: transparent !important;
-    color: #000 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    background-clip: padding-box !important;
-  }
+ #mirroredDateInput,
+ #mirroredDateInput2,
+ #dateInput {
+   border-top: 1px solid #cbd5e1 !important;
+   border-left: 1px solid #cbd5e1 !important;
+   border-right: 1px solid #cbd5e1 !important;
+   border-bottom: none !important;          /* removes bottom edge */
+   border-radius: 4px 4px 0 0 !important;   /* keeps rounded top corners only */
+   background: transparent !important;
+   padding: 2px 6px !important;
+   height: auto !important;
+   box-shadow: none !important;
+   }
   .date-container {
     border: none !important;
     box-shadow: none !important;
@@ -274,7 +277,6 @@ body {
     margin: 0 !important;
   }
 }
-  
 </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -2102,5 +2104,30 @@ document.addEventListener('click', (e) => {
 renderList(sampleLocations);
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98914399c001d647',t:'MTc1OTU0NTA5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<!-- Auto-align Date Box script -->
+<script>      
+function alignDateBoxToStartColumn() {
+  const dateContainer = document.querySelector('.date-container');
+  const startTimeHeader = document.querySelector('table th:first-child');
+  const mirroredDateInput = document.querySelector('#mirroredDateInput, #mirroredDateInput2');
+
+  if (dateContainer && startTimeHeader && mirroredDateInput) {
+    const tableRect = startTimeHeader.getBoundingClientRect();
+    const tableRightEdge = tableRect.right;
+    const containerRect = dateContainer.getBoundingClientRect();
+    const containerLeftEdge = containerRect.left;
+
+    // Calculate width so right edge matches Start Time right edge
+    const newWidth = tableRightEdge - containerLeftEdge - 1; // small buffer
+    mirroredDateInput.style.width = `${newWidth}px`;
+  }
+}
+
+// Run alignment before printing and on preview
+window.addEventListener('beforeprint', alignDateBoxToStartColumn);
+window.addEventListener('load', alignDateBoxToStartColumn);
+window.addEventListener('resize', alignDateBoxToStartColumn);
+</script>
+      
+</body>
 </html>
