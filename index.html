@@ -256,9 +256,9 @@ body {
 }
  @media print {
   /* Match builder mode: remove inner border, keep parent box */
- #mirroredDateInput,
- #mirroredDateInput2,
- #dateInput {
+body .date-container #mirroredDateInput,
+body .date-container #mirroredDateInput2,
+body .date-container #dateInput {
    border-top: 1px solid #cbd5e1 !important;
    border-left: 1px solid #cbd5e1 !important;
    border-right: 1px solid #cbd5e1 !important;
@@ -269,12 +269,14 @@ body {
    height: auto !important;
    box-shadow: none !important;
    }
-  .date-container {
+       
+  body .date-container {
     border: none !important;
     box-shadow: none !important;
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
+    vertical-align: middle !important;    
   }
 }
 </style>
